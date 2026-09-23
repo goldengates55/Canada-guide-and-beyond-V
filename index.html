@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Canada & Beyond — Visa & Immigration Guides</title>
+<style>
+  :root{
+    --navy:#131c33; --navy2:#1f2a44; --gold:#c9a24b; --cream:#f5f1e6;
+    --text:#eae6da; --muted:#9aa2b8; --card:#1a2540;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){ --bg:#faf8f3; }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0; font-family:Georgia,'Times New Roman',serif; background:var(--navy); color:var(--text);
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  header{padding:48px 20px 32px; text-align:center; border-bottom:1px solid #2a3556;}
+  .mark{font-size:34px;}
+  .brand{letter-spacing:4px; color:var(--gold); font-size:12px; margin-top:10px; font-family:Arial,sans-serif;}
+  h1{font-size:clamp(28px,6vw,42px); margin:16px auto 8px; max-width:720px;}
+  .sub{color:var(--muted); font-family:Arial,sans-serif; max-width:560px; margin:0 auto; font-size:15px;}
+  main{max-width:760px; margin:0 auto; padding:36px 20px 80px;}
+  section{margin-bottom:48px;}
+  h2{color:var(--gold); font-size:20px; letter-spacing:1px; border-bottom:1px solid #2a3556; padding-bottom:10px;}
+  .guide{
+    background:var(--card); border:1px solid #2a3556; border-radius:10px; padding:18px 20px;
+    margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .guide h3{margin:0 0 4px; font-size:17px;}
+  .guide p{margin:0; color:var(--muted); font-family:Arial,sans-serif; font-size:13px;}
+  .buy{
+    background:var(--gold); color:#1a1300; border:none; padding:10px 18px; border-radius:6px;
+    font-family:Arial,sans-serif; font-weight:bold; font-size:13px; cursor:pointer; white-space:nowrap;
+    text-decoration:none;
+  }
+  .ref-box{
+    background:var(--card); border:1px solid var(--gold); border-radius:10px; padding:24px; font-family:Arial,sans-serif;
+  }
+  .ref-box p{color:var(--muted); font-size:14px; line-height:1.5;}
+  input{
+    width:100%; padding:11px 12px; border-radius:6px; border:1px solid #3a4568; background:#0f1830;
+    color:var(--text); font-family:Arial,sans-serif; font-size:14px; margin-bottom:10px;
+  }
+  .gen-btn{
+    background:var(--gold); color:#1a1300; border:none; padding:11px 20px; border-radius:6px;
+    font-family:Arial,sans-serif; font-weight:bold; cursor:pointer; width:100%; font-size:14px;
+  }
+  #result{display:none; margin-top:18px; padding-top:18px; border-top:1px dashed #3a4568;}
+  .link-row{display:flex; gap:8px; margin:10px 0; flex-wrap:wrap;}
+  .link-row input{flex:1; min-width:180px; margin:0; font-size:13px;}
+  .copy-btn, .wa-btn{
+    padding:11px 16px; border-radius:6px; border:none; font-family:Arial,sans-serif; font-weight:bold;
+    cursor:pointer; font-size:13px; text-decoration:none; display:inline-block; text-align:center;
+  }
+  .copy-btn{background:#2a3556; color:var(--text);}
+  .wa-btn{background:#25D366; color:#06210f; width:100%; margin-top:6px;}
+  .badge{
+    display:inline-block; background:#25D36622; color:#25D366; border:1px solid #25D36655;
+    padding:3px 9px; border-radius:20px; font-size:11px; margin-bottom:10px;
+  }
+  footer{text-align:center; padding:24px 20px; color:var(--muted); font-family:Arial,sans-serif; font-size:12px; border-top:1px solid #2a3556;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">🌐</div>
+  <div class="brand">CANADA &amp; BEYOND</div>
+  <h1>Visa &amp; Immigration Guides</h1>
+  <p class="sub">Officer-ready frameworks for a complete, credible visa application — by Ngwa Bertrand, Golden Gates Immigration Services.</p>
+</header>
+
+<main>
+  <section id="guides">
+    <h2>The Guides</h2>
+
+    <div class="guide">
+      <div><h3>The Canada Business Visit Visa Guide</h3><p>Business visit visa framework for Cameroon applicants</p></div>
+      <a class="buy" href="#" data-guide="The Canada Business Visit Visa Guide">Buy on WhatsApp</a>
+    </div>
+
+    <div class="guide">
+      <div><h3>The Canada Visit &amp; Tourist Visa Guide</h3><p>Visitor visa framework, also covering Schengen, US, UK &amp; Australia</p></div>
+      <a class="buy" href="#" data-guide="The Canada Visit & Tourist Visa Guide">Buy on WhatsApp</a>
+    </div>
+
+    <div class="guide">
+      <div><h3>Building a Credible Savings History</h3><p>Step-by-step savings plan for visa applicants</p></div>
+      <a class="buy" href="#" data-guide="Building a Credible Savings History">Buy on WhatsApp</a>
+    </div>
+
+    <div class="guide">
+      <div><h3>Visa &amp; Immigration Masterclass</h3><p>Complete guide to documentation, strategy &amp; global mobility</p></div>
+      <a class="buy" href="#" data-guide="Visa & Immigration Masterclass">Buy on WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="referral">
+    <h2>Become a Referral Partner</h2>
+    <div class="ref-box">
+      <span class="badge">Earn 15–25% per sale</span>
+      <p>Get your own referral link. Share it — anyone who buys through it gets 10% off, and you earn a commission once the sale is confirmed.</p>
+      <input id="refName" type="text" placeholder="Your name (e.g. Bertrand)">
+      <input id="refPhone" type="text" placeholder="Your WhatsApp number (for payouts)">
+      <button class="gen-btn" onclick="generateLink()">Generate my referral link</button>
+
+      <div id="result">
+        <p style="color:var(--gold); font-weight:bold; margin-bottom:2px;">Your referral code: <span id="codeOut"></span></p>
+        <div class="link-row">
+          <input id="linkOut" readonly>
+          <button class="copy-btn" onclick="copyLink()">Copy</button>
+        </div>
+        <a class="wa-btn" id="waShare" href="#" target="_blank">Share this link on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
+
+<script>
+  const WHATSAPP_NUMBER = "237651279347";
+  const params = new URLSearchParams(window.location.search);
+  const incomingRef = params.get('ref');
+
+  function waBuyLink(guideName){
+    let msg = `Hi, I'd like to buy the guide: ${guideName}.`;
+    if (incomingRef) msg += ` I was referred by code ${incomingRef}.`;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  document.querySelectorAll('.buy').forEach(btn=>{
+    btn.href = waBuyLink(btn.dataset.guide);
+  });
+
+  function slugCode(name){
+    const clean = name.trim().toUpperCase().replace(/[^A-Z]/g,'') || 'PARTNER';
+    const num = Math.floor(10 + Math.random()*89);
+    return clean.slice(0,10) + num;
+  }
+
+  function generateLink(){
+    const name = document.getElementById('refName').value;
+    if(!name.trim()){ alert('Enter your name first.'); return; }
+    const code = slugCode(name);
+    const link = `${window.location.origin}${window.location.pathname}?ref=${code}`;
+    document.getElementById('codeOut').textContent = code;
+    document.getElementById('linkOut').value = link;
+    document.getElementById('result').style.display = 'block';
+    const waMsg = `Check out these Canada & Beyond visa guides — use my code ${code} for 10% off: ${link}`;
+    document.getElementById('waShare').href = `https://wa.me/?text=${encodeURIComponent(waMsg)}`;
+  }
+
+  function copyLink(){
+    const el = document.getElementById('linkOut');
+    el.select(); el.setSelectionRange(0,9999);
+    navigator.clipboard?.writeText(el.value);
+  }
+</script>
+
+</body>
+</html>
