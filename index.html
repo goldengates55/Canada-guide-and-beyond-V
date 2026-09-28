@@ -58,15 +58,142 @@
   }
   .copy-btn{background:#2a3556; color:var(--text);}
   .wa-btn{background:#25D366; color:#06210f; width:100%; margin-top:6px;}
+  .tool-btn{
+    background:transparent; color:var(--gold); border:1px solid var(--gold); padding:9px 17px; border-radius:6px;
+    font-family:Arial,sans-serif; font-weight:bold; font-size:13px; cursor:pointer; white-space:nowrap;
+    text-decoration:none;
+  }
+
+  .contact-btn{
+    background:var(--gold); color:#1a1300; border:none; padding:11px 18px; border-radius:6px;
+    font-family:Arial,sans-serif; font-weight:bold; font-size:13px; cursor:pointer; white-space:nowrap;
+    text-decoration:none; display:block; text-align:center;
+  }
+  .site-tabs{
+    display:flex; gap:2px; max-width:760px; margin:0 auto; padding:0 20px 0 20px;
+    background:var(--navy2); overflow-x:auto; -webkit-overflow-scrolling:touch;
+  }
+  .site-tabs::-webkit-scrollbar{display:none;}
+  .site-tab{
+    font-family:Arial,sans-serif; background:transparent; border:none; color:var(--muted);
+    cursor:pointer; padding:14px 18px; font-size:14px; white-space:nowrap; border-bottom:3px solid transparent;
+  }
+  .site-tab.active{ color:var(--text); border-bottom-color:var(--gold); font-weight:bold; }
   .badge{
     display:inline-block; background:#25D36622; color:#25D366; border:1px solid #25D36655;
     padding:3px 9px; border-radius:20px; font-size:11px; margin-bottom:10px;
   }
   footer{text-align:center; padding:24px 20px; color:var(--muted); font-family:Arial,sans-serif; font-size:12px; border-top:1px solid #2a3556;}
+
+#toolView{
+  --navy:#1B2A4A; --navy-2:#243758; --gold:#C89B3C; --gold-dim:#8f6f2c;
+  --paper:#F7F4EC; --ink:#20242E; --ink-soft:#565B68; --line:#D8D2C2;
+  --done:#4C7A5B;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  #toolView:not([data-theme="light"]){
+    --paper:#15181F; --ink:#EDEAE0; --ink-soft:#A6ABB8; --line:#333747; --navy:#233860; --navy-2:#2C4270;
+  }
+}
+#toolView[data-theme="dark"]{
+  --paper:#15181F; --ink:#EDEAE0; --ink-soft:#A6ABB8; --line:#333747; --navy:#233860; --navy-2:#2C4270;
+}
+#toolView{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  min-height:100%;
+}
+.sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+#toolView header{
+  background:var(--navy); color:#fff;
+  padding:env(safe-area-inset-top,0px) 0 0 0;
+}
+.header-inner{max-width:920px; margin:0 auto; padding:28px 24px 22px;}
+.brand{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:.02em; color:var(--gold); margin:0 0 6px;}
+#toolView h1{font-size:clamp(24px,4vw,32px); margin:0 0 8px; font-weight:600; line-height:1.15;}
+.sub{color:#C9CEDA; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:15px; max-width:60ch; line-height:1.5; margin:0;}
+
+.tabs{
+  max-width:920px; margin:0 auto; padding:0 24px;
+  display:flex; gap:2px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  background:var(--navy-2);
+}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  background:transparent; border:none; color:#B9C0D1; cursor:pointer;
+  padding:14px 16px; font-size:14px; white-space:nowrap; border-bottom:3px solid transparent;
+}
+.tab.active{color:#fff; border-bottom-color:var(--gold); font-weight:600;}
+
+#toolView main{max-width:920px; margin:0 auto; padding:28px 24px 80px;}
+
+.progress-row{display:flex; align-items:center; gap:14px; margin-bottom:28px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
+.progress-track{flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden;}
+.progress-fill{height:100%; background:var(--gold); width:0%; transition:width .3s ease;}
+.progress-label{font-size:13px; color:var(--ink-soft); white-space:nowrap;}
+
+.category{margin-bottom:30px;}
+.category h2{
+  font-size:19px; margin:0 0 4px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+}
+.cat-count{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:13px; color:var(--ink-soft); font-weight:400;}
+
+.item{
+  display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
+}
+.item:last-child{border-bottom:none;}
+.check{
+  flex:none; width:22px; height:22px; margin-top:2px; border-radius:5px;
+  border:2px solid var(--gold-dim); background:transparent; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; padding:0;
+}
+.check svg{width:13px; height:13px; opacity:0; stroke:#fff;}
+.item.done .check{background:var(--done); border-color:var(--done);}
+.item.done .check svg{opacity:1;}
+.item.done .item-title{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:var(--line);}
+.item-body{flex:1; min-width:0;}
+.item-title{font-size:16px; font-weight:600; margin:0 0 4px; cursor:pointer;}
+.item-tip{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:14px; color:var(--ink-soft); line-height:1.5; margin:0;}
+
+.reset-row{margin-top:36px; text-align:center;}
+.reset-btn{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  background:none; border:1px solid var(--line); color:var(--ink-soft);
+  padding:9px 18px; border-radius:20px; font-size:13px; cursor:pointer;
+}
+.reset-btn:hover{border-color:var(--gold-dim); color:var(--ink);}
+
+#toolView footer{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  text-align:center; color:var(--ink-soft); font-size:12.5px; padding:0 24px 30px;
+}
+
+@media print{
+  #toolView header{background:none !important; color:var(--ink) !important;}
+  .brand,.sub{color:var(--ink-soft) !important;}
+  .tabs{display:none;}
+  .progress-row,.reset-row{display:none;}
+  .check{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+}
+
+:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
 </style>
 </head>
 <body>
 
+<div class="site-tabs">
+  <button class="site-tab active" id="tabHomeBtn" onclick="showHome(event)">Guides &amp; Referral</button>
+  <button class="site-tab" id="tabToolBtn" onclick="showTool(event)">Document Prep Guide</button>
+  <button class="site-tab" id="tabChinaBtn" onclick="showChina(event)">China Sourcing</button>
+</div>
+
+<div id="homeView">
 <header>
   <div class="mark">🌐</div>
   <div class="brand">CANADA &amp; BEYOND</div>
@@ -97,6 +224,11 @@
       <div><h3>Visa &amp; Immigration Masterclass</h3><p>Complete guide to documentation, strategy &amp; global mobility</p></div>
       <a class="buy" href="#" data-guide="Visa & Immigration Masterclass">Buy on WhatsApp</a>
     </div>
+
+    <div class="guide">
+      <div><h3>Document Preparation Guide</h3><p>Free interactive checklist — Business, Visit, Study, Work &amp; Immigration</p></div>
+      <a class="tool-btn" href="#tool" onclick="showTool(event)">Open Guide</a>
+    </div>
   </section>
 
   <section id="referral">
@@ -121,6 +253,61 @@
 </main>
 
 <footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
+</div>
+
+<div id="toolView" style="display:none">
+<header>
+  <div class="header-inner">
+    <p class="brand">GOLDEN GATES IMMIGRATION SERVICES</p>
+    <h1>Document Preparation Guide</h1>
+    <p class="sub">Work through each category as you gather your documents. Check items off as they're ready — your file is only complete when the list is.</p>
+    <p class="sub" style="margin-top:10px; font-size:13px; opacity:.8;">This checklist covers what to gather — it isn't a substitute for a full review of your specific case.</p>
+  </div>
+  <div class="tabs" id="tabs"></div>
+</header>
+
+<main>
+  <div class="progress-row">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-label sans" id="progressLabel">0 of 0 ready</span>
+  </div>
+  <div id="categories"></div>
+  <div class="reset-row">
+    <button class="reset-btn" id="resetBtn">Reset this checklist</button>
+  </div>
+</main>
+
+<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
+</div>
+<div id="chinaView" style="display:none">
+<header>
+  <div class="mark">🚢</div>
+  <div class="brand">CANADA &amp; BEYOND</div>
+  <h1>Source &amp; Import from China</h1>
+  <p class="sub">Learn to find reliable suppliers yourself — or let us handle the import once you already know what you need.</p>
+</header>
+
+<main>
+  <section id="china-guides">
+    <h2>Learn to Source</h2>
+    <div class="guide">
+      <div><h3>China Sourcing Masterclass</h3><p>Finding reliable suppliers, verifying legitimacy, negotiating MOQs &amp; price, quality control, and avoiding common scams</p></div>
+      <a class="buy" href="#" data-guide="China Sourcing Masterclass">Buy on WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="china-import">
+    <h2>Already Found a Supplier?</h2>
+    <div class="ref-box">
+      <p>If you've already identified your product and supplier, we can handle the import for you — payment to the supplier, shipping, customs clearance, and delivery within Cameroon.</p>
+      <a class="contact-btn" href="https://wa.me/237651279347?text=Hi%2C%20I%20already%20have%20a%20supplier%20and%20would%20like%20help%20importing%20my%20order." target="_blank">Request Import Service</a>
+    </div>
+  </section>
+</main>
+
+<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
+</div>
+
 
 <script>
   const WHATSAPP_NUMBER = "237651279347";
@@ -160,6 +347,283 @@
     el.select(); el.setSelectionRange(0,9999);
     navigator.clipboard?.writeText(el.value);
   }
+
+  function showTool(e){
+    if(e) e.preventDefault();
+    document.getElementById('homeView').style.display = 'none';
+    document.getElementById('toolView').style.display = 'block';
+    document.getElementById('chinaView').style.display = 'none';
+    document.getElementById('tabHomeBtn').classList.remove('active');
+    document.getElementById('tabToolBtn').classList.add('active');
+    document.getElementById('tabChinaBtn').classList.remove('active');
+    window.scrollTo(0,0);
+    history.pushState({view:'tool'}, '', '#tool');
+  }
+  function showChina(e){
+    if(e) e.preventDefault();
+    document.getElementById('homeView').style.display = 'none';
+    document.getElementById('toolView').style.display = 'none';
+    document.getElementById('chinaView').style.display = 'block';
+    document.getElementById('tabHomeBtn').classList.remove('active');
+    document.getElementById('tabToolBtn').classList.remove('active');
+    document.getElementById('tabChinaBtn').classList.add('active');
+    window.scrollTo(0,0);
+    history.pushState({view:'china'}, '', '#china');
+  }
+  function showHome(e){
+    if(e) e.preventDefault();
+    document.getElementById('toolView').style.display = 'none';
+    document.getElementById('chinaView').style.display = 'none';
+    document.getElementById('homeView').style.display = '';
+    document.getElementById('tabToolBtn').classList.remove('active');
+    document.getElementById('tabChinaBtn').classList.remove('active');
+    document.getElementById('tabHomeBtn').classList.add('active');
+    window.scrollTo(0,0);
+    history.pushState({view:'home'}, '', location.pathname + location.search);
+  }
+  window.addEventListener('popstate', function(){
+    if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); } else { showHome(); }
+  });
+  if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); }
+
+</script>
+<script>
+const DATA = {
+  business: {
+    label: "Business Visit",
+    categories: [
+      { name: "Identity & Status", items: [
+        { t: "Valid passport (6+ months beyond travel date)", tip: "Officers check that the passport won't expire mid-trip — a short validity window is an easy first rejection." },
+        { t: "National ID card", tip: "Confirms identity matches every other document in the file." },
+        { t: "Passport-size photos (visa spec)", tip: "Must meet the exact size and background rules for the destination country's visa form." }
+      ]},
+      { name: "Purpose of Travel", items: [
+        { t: "Invitation letter from host company", tip: "Should state the purpose, dates, and who is covering costs — vague invitations invite refusal." },
+        { t: "Employer's letter confirming the trip", tip: "Shows you have a job to return to — this is a key 'ties to home' signal." },
+        { t: "Company registration documents", tip: "Proves both companies are real, operating businesses, not just names on a letter." },
+        { t: "Meeting agenda or conference proof", tip: "Concrete evidence the visit has a defined business outcome, not an open-ended stay." }
+      ]},
+      { name: "Financial Evidence", items: [
+        { t: "Bank statements (last 6 months)", tip: "Officers look for consistent activity, not a lump sum deposited right before applying." },
+        { t: "Proof of who is funding the trip", tip: "If the company is paying, a clear sponsorship letter avoids confusion about your own finances." }
+      ]},
+      { name: "Ties to Home Country", items: [
+        { t: "Proof of employment / business ownership", tip: "The strongest evidence you have a reason to come back." },
+        { t: "Property or lease documents", tip: "Physical roots in the home country weigh heavily in the officer's judgment." },
+        { t: "Family or dependent details", tip: "Dependents relying on you are another strong return incentive." }
+      ]}
+    ]
+  },
+  visit: {
+    label: "Visit & Tourist",
+    categories: [
+      { name: "Identity & Status", items: [
+        { t: "Valid passport (6+ months beyond travel date)", tip: "Same rule across nearly every destination — check this first, every time." },
+        { t: "National ID card", tip: "Backs up identity consistency across the file." },
+        { t: "Passport-size photos (visa spec)", tip: "Each country/consulate has its own exact spec — check before printing." }
+      ]},
+      { name: "Travel Plan", items: [
+        { t: "Round-trip flight reservation", tip: "A reservation, not necessarily a paid ticket — but dates must match the visa duration requested." },
+        { t: "Accommodation booking or invitation letter", tip: "Shows where you'll actually stay for every night of the trip." },
+        { t: "Day-by-day itinerary", tip: "Demonstrates a genuine, thought-out visit rather than an open-ended plan." },
+        { t: "Travel insurance (required for Schengen)", tip: "Schengen specifically requires minimum €30,000 medical coverage — this is often missed." }
+      ]},
+      { name: "Financial Evidence", items: [
+        { t: "Bank statements (last 3–6 months)", tip: "Consistent balance and regular inflows matter more than a single high number." },
+        { t: "Proof of income or pension", tip: "Shows the funds are sustainable, not a one-time gift for the application." }
+      ]},
+      { name: "Ties to Home Country", items: [
+        { t: "Employment letter with leave approval", tip: "Confirms a job is waiting and leave is already granted for these exact dates." },
+        { t: "Property, business, or family documents", tip: "Any evidence of obligations that require a return." }
+      ]}
+    ]
+  },
+  savings: {
+    label: "Savings History",
+    categories: [
+      { name: "Building the Record", items: [
+        { t: "Open or use one main account consistently", tip: "Officers distrust money that appears across many scattered accounts right before applying." },
+        { t: "Regular, explainable deposits over time", tip: "A pattern that matches a real income source reads as credible; sudden lump sums do not." },
+        { t: "Avoid large unexplained inflows", tip: "Any large deposit should have a paper trail — salary, sale of an asset, or documented gift." }
+      ]},
+      { name: "Supporting Paperwork", items: [
+        { t: "Employment or business income proof", tip: "Ties the savings pattern back to a believable source." },
+        { t: "Letter explaining any gifted funds", tip: "Include the giver's relationship, their own financial proof, and reason for the gift." },
+        { t: "Six-month (minimum) statement history", tip: "Shorter histories are the single most common reason savings evidence is questioned." }
+      ]}
+    ]
+  },
+  master: {
+    label: "Full Application File",
+    categories: [
+      { name: "Core Documents", items: [
+        { t: "Passport + national ID", tip: "The foundation every other document is cross-checked against." },
+        { t: "Visa application form (signed, no errors)", tip: "Inconsistencies between the form and supporting documents are a top rejection cause." },
+        { t: "Passport photos to exact spec", tip: "Confirm the spec for the specific destination before printing." }
+      ]},
+      { name: "The Narrative", items: [
+        { t: "Cover letter explaining purpose of travel", tip: "Ties every other document into one coherent story the officer can follow in two minutes." },
+        { t: "Supporting invitation or booking evidence", tip: "Matches the story told in the cover letter — dates and names must align exactly." }
+      ]},
+      { name: "Financial & Ties Evidence", items: [
+        { t: "Bank statements + income proof", tip: "The financial half of the credibility picture." },
+        { t: "Employment, property, or family ties", tip: "The 'why they'll return' half — both halves are needed, not just one." }
+      ]},
+      { name: "Final Review", items: [
+        { t: "Every name, date, and address matches across all documents", tip: "The most common reason a strong file still gets refused is a mismatch an officer catches in seconds." },
+        { t: "Translations attached where required", tip: "Certified translations only — informal ones are often rejected outright." }
+      ]}
+    ]
+  },
+  study: {
+    label: "Study Visa",
+    categories: [
+      { name: "Identity & Status", items: [
+        { t: "Valid passport (covering your full study period)", tip: "Your passport should stay valid well beyond your expected graduation date, not just the current term." },
+        { t: "National ID card", tip: "Backs up identity consistency across every document in your file." },
+        { t: "Passport-size photos (visa spec)", tip: "Check the exact size and background rules for your destination before printing." }
+      ]},
+      { name: "Acceptance & Enrollment", items: [
+        { t: "Letter of acceptance from the school", tip: "This is the anchor document — it must be from a designated/recognized institution and match your program exactly." },
+        { t: "Proof of tuition deposit or payment", tip: "Shows the offer is real and you've already committed to the program." },
+        { t: "Academic transcripts and certificates", tip: "Confirms you meet the entry requirements the school admitted you under." }
+      ]},
+      { name: "Financial Evidence", items: [
+        { t: "Proof of funds for tuition and living costs", tip: "Must cover the officer's minimum threshold for your destination, not just tuition alone." },
+        { t: "GIC or blocked account certificate (where required)", tip: "Some countries (e.g. Canada's SDS-style routes) require funds locked in a specific account — check if this applies to you." },
+        { t: "Sponsor's financial documents (if sponsored)", tip: "Include proof of the sponsor's relationship to you and their own income or savings history." }
+      ]},
+      { name: "Ties to Home Country", items: [
+        { t: "Study plan / statement of purpose", tip: "Explains why this program, why now, and how it fits your plans back home — officers read this closely for intent to return." },
+        { t: "Family, property, or job-offer ties", tip: "Evidence of what's waiting for you at home strengthens your case that this is temporary study, not a one-way move." }
+      ]}
+    ]
+  },
+  work: {
+    label: "Work Visa",
+    categories: [
+      { name: "Identity & Status", items: [
+        { t: "Valid passport (covering the full work permit period)", tip: "Should extend well past your contract's end date." },
+        { t: "National ID card", tip: "Confirms identity matches your employment paperwork exactly." },
+        { t: "Passport-size photos (visa spec)", tip: "Check the exact spec for your destination country before printing." }
+      ]},
+      { name: "Job Offer & Authorization", items: [
+        { t: "Signed job offer or employment contract", tip: "Must state role, salary, and duration clearly — vague contracts raise questions." },
+        { t: "Labour market authorization (e.g. LMIA) if required", tip: "Some countries require the employer to prove no local hire was available — confirm if your route needs this." },
+        { t: "Proof of qualifications or licenses", tip: "Certificates or licenses showing you're qualified for the specific role offered." }
+      ]},
+      { name: "Financial Evidence", items: [
+        { t: "Bank statements (last 3–6 months)", tip: "Shows you can support yourself until your first paycheck lands." },
+        { t: "Proof of settlement funds (if required)", tip: "Some work-visa routes require a minimum amount on hand for initial settling-in costs." }
+      ]},
+      { name: "Ties to Home Country", items: [
+        { t: "Property, family, or business ties", tip: "For temporary work visas, this shows the move is for the job term, not permanent relocation without a plan." },
+        { t: "Current employer's leave letter (if applicable)", tip: "If you're on assignment rather than resigning, this confirms you have a position to return to." }
+      ]}
+    ]
+  },
+  immigration: {
+    label: "Immigration",
+    categories: [
+      { name: "Identity & Civil Status", items: [
+        { t: "Valid passport", tip: "The core identity document every other form and certificate is checked against." },
+        { t: "Birth certificate", tip: "Required to confirm identity and, often, family relationships in your application." },
+        { t: "Marriage certificate (if applicable)", tip: "Needed if a spouse is included in your application." }
+      ]},
+      { name: "Eligibility Documents", items: [
+        { t: "Language test results", tip: "Most points-based systems require a recent, specific test — check the validity window before applying." },
+        { t: "Educational credential assessment (ECA)", tip: "Converts your foreign degree into an equivalent recognized by the immigration system." },
+        { t: "Work experience letters", tip: "Should state job title, duties, hours per week, and dates precisely — vague letters cost points." }
+      ]},
+      { name: "Financial Evidence", items: [
+        { t: "Proof of settlement funds", tip: "Most economic immigration routes require a minimum amount on hand, scaled to family size." },
+        { t: "Bank statements showing fund history", tip: "Officers want to see the money has been available and unencumbered, not borrowed just before applying." }
+      ]},
+      { name: "Background & Admissibility", items: [
+        { t: "Police clearance certificates", tip: "Required from every country you've lived in for an extended period — these can take weeks to arrive, so start early." },
+        { t: "Medical exam (from an approved panel physician)", tip: "Must be done by a physician approved by the destination country, not just any doctor." }
+      ]}
+    ]
+  }
+};
+
+const tabsEl = document.getElementById('tabs');
+const catsEl = document.getElementById('categories');
+const fillEl = document.getElementById('progressFill');
+const labelEl = document.getElementById('progressLabel');
+const resetBtn = document.getElementById('resetBtn');
+
+let current = 'business';
+const STORE_PREFIX = 'ggi-doc-prep-';
+
+function loadState(key){
+  try{ return JSON.parse(localStorage.getItem(STORE_PREFIX+key) || '{}'); }
+  catch(e){ return {}; }
+}
+function saveState(key, state){
+  try{ localStorage.setItem(STORE_PREFIX+key, JSON.stringify(state)); }
+  catch(e){ /* storage unavailable, continue silently */ }
+}
+
+function render(){
+  tabsEl.innerHTML = '';
+  Object.keys(DATA).forEach(key=>{
+    const b = document.createElement('button');
+    b.className = 'tab sans' + (key===current ? ' active' : '');
+    b.textContent = DATA[key].label;
+    b.onclick = ()=>{ current = key; render(); };
+    tabsEl.appendChild(b);
+  });
+
+  const state = loadState(current);
+  const cats = DATA[current].categories;
+  let total = 0, done = 0;
+
+  catsEl.innerHTML = '';
+  cats.forEach((cat, ci)=>{
+    const catDiv = document.createElement('div');
+    catDiv.className = 'category';
+    const catDone = cat.items.filter((_,ii)=>state[ci+'-'+ii]).length;
+    catDiv.innerHTML = `<h2>${cat.name} <span class="cat-count">${catDone}/${cat.items.length}</span></h2>`;
+
+    cat.items.forEach((item, ii)=>{
+      total++;
+      const id = ci+'-'+ii;
+      const isDone = !!state[id];
+      if(isDone) done++;
+      const row = document.createElement('div');
+      row.className = 'item' + (isDone ? ' done' : '');
+      row.innerHTML = `
+        <button class="check" aria-label="Mark done" aria-pressed="${isDone}">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="item-body">
+          <p class="item-title">${item.t}</p>
+          <p class="item-tip">${item.tip}</p>
+        </div>`;
+      const toggle = ()=>{
+        const s = loadState(current);
+        s[id] = !s[id];
+        saveState(current, s);
+        render();
+      };
+      row.querySelector('.check').onclick = toggle;
+      row.querySelector('.item-title').onclick = toggle;
+      catDiv.appendChild(row);
+    });
+    catsEl.appendChild(catDiv);
+  });
+
+  fillEl.style.width = total ? (done/total*100)+'%' : '0%';
+  labelEl.textContent = `${done} of ${total} ready`;
+}
+
+resetBtn.onclick = ()=>{
+  saveState(current, {});
+  render();
+};
+
+render();
 </script>
 
 </body>
