@@ -64,6 +64,10 @@
     text-decoration:none;
   }
 
+
+  .faq details{background:var(--card); border:1px solid #2a3556; border-radius:8px; padding:14px 16px; margin-bottom:10px; font-family:Arial,sans-serif;}
+  .faq summary{cursor:pointer; font-weight:bold; font-size:14px; color:var(--text);}
+  .faq p{color:var(--muted); font-size:13px; margin:10px 0 0; line-height:1.5;}
   .contact-btn{
     background:var(--gold); color:#1a1300; border:none; padding:11px 18px; border-radius:6px;
     font-family:Arial,sans-serif; font-weight:bold; font-size:13px; cursor:pointer; white-space:nowrap;
@@ -191,6 +195,8 @@
   <button class="site-tab active" id="tabHomeBtn" onclick="showHome(event)">Guides &amp; Referral</button>
   <button class="site-tab" id="tabToolBtn" onclick="showTool(event)">Document Prep Guide</button>
   <button class="site-tab" id="tabChinaBtn" onclick="showChina(event)">China Sourcing</button>
+  <button class="site-tab" id="tabPnpBtn" onclick="showPnp(event)">PNP Links</button>
+  <button class="site-tab" id="tabEmpBtn" onclick="showEmp(event)">Designated Employers</button>
 </div>
 
 <div id="homeView">
@@ -250,6 +256,40 @@
       </div>
     </div>
   </section>
+
+  <section id="pnp-faq">
+    <h2>Common Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Can I apply for a PNP without a job offer?</summary>
+        <p>In most streams, no — a job offer from an employer in that province is the default requirement. A small number of exceptions exist (certain graduate, entrepreneur, or in-demand-occupation categories), but which ones are open shifts throughout the year, so check the current streams on your target province's official page rather than relying on a fixed list.</p>
+      </details>
+      <details>
+        <summary>Which province is best for French-speaking applicants from Cameroon?</summary>
+        <p>New Brunswick and Manitoba are worth prioritizing — see the note above. That said, the right province still depends on your occupation, education and where you already have ties.</p>
+      </details>
+      <details>
+        <summary>Do I need to visit the province before applying?</summary>
+        <p>Not usually required, but a visit can help build genuine ties and strengthen your case for provinces that weigh intent to settle.</p>
+      </details>
+      <details>
+        <summary>Can I move to a different province after being nominated?</summary>
+        <p>A provincial nomination is tied to a commitment to live in that province. Relocating soon after landing can raise questions in future dealings with immigration authorities, so it's worth choosing the province you genuinely intend to settle in.</p>
+      </details>
+      <details>
+        <summary>How long does provincial nomination take?</summary>
+        <p>It varies widely by province and stream, and timelines shift often. The official page for your target province will have the current estimate.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="pnp-cta">
+    <div class="ref-box" style="text-align:center;">
+      <p style="margin-bottom:14px;">Not sure which province fits your profile?</p>
+      <a class="contact-btn" href="https://wa.me/237651279347?text=Hi%2C%20I%27d%20like%20help%20choosing%20the%20right%20Canadian%20province%20for%20my%20PNP%20application." target="_blank">Book a Consultation on WhatsApp</a>
+    </div>
+  </section>
+
 </main>
 
 <footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
@@ -308,6 +348,183 @@
 <footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
 </div>
 
+<div id="pnpView" style="display:none">
+<header>
+  <div class="mark">🍁</div>
+  <div class="brand">CANADA &amp; BEYOND</div>
+  <h1>Which Canadian Province Should You Apply To?</h1>
+  <p class="sub">Compare Canada's Provincial Nominee Programs (PNP) by province. Links go directly to the official government page — always confirm current requirements there before applying.</p>
+</header>
+
+<main>
+  <section id="pnp-francophone">
+    <div class="ref-box">
+      <span class="badge">Good to know</span>
+      <p>If you're more comfortable applying and settling in French, look at <strong>New Brunswick</strong> — Canada's only officially bilingual province, which runs dedicated Francophone streams and recruitment missions — and <strong>Manitoba</strong>'s francophone pathway. These typically mean lower language-score thresholds and access to targeted draws, not an exemption from the job-offer requirement. New Brunswick's main entry route from abroad (Francophone Workers) still needs a job offer or recruitment-mission offer; its no-offer exceptions (Francophone Priorities, Remote Workers) require already having studied or lived in the province for an extended period first — not a shortcut if you're applying from outside Canada.</p>
+    </div>
+  </section>
+
+  <section id="pnp-list">
+    <h2>Provinces &amp; Territories</h2>
+    <div class="ref-box" style="margin-bottom:24px;">
+      <p style="margin:0;">Almost every stream across every province requires a job offer from an employer in that province — that's the default to plan around. A handful of narrow exceptions exist (certain graduate, entrepreneur, or in-demand-occupation categories), but which ones are open changes throughout the year. Rather than list specifics that go stale, use the "Official Site" link below for the province you're targeting to see its current streams.</p>
+    </div>
+
+    <div class="guide">
+      <div><h3>Alberta</h3><p>Alberta Advantage Immigration Program (AAIP)</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: Alberta work experience, skilled trades, or agriculture-sector job offers.</p></div>
+      <a class="tool-btn" href="https://www.alberta.ca/alberta-advantage-immigration-program" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>British Columbia</h3><p>BC Provincial Nominee Program (BC PNP)</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: tech, healthcare or skilled trades — strong option even without a job offer.</p></div>
+      <a class="tool-btn" href="https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Manitoba</h3><p>Manitoba Provincial Nominee Program (MPNP)</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: a family connection in Manitoba, or an in-demand occupation.</p></div>
+      <a class="tool-btn" href="https://immigratemanitoba.com/mpnp/" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>New Brunswick</h3><p>New Brunswick Provincial Nominee Program</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: an existing job offer, especially via the Atlantic Immigration Program.</p></div>
+      <a class="tool-btn" href="https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Newfoundland and Labrador</h3><p>NL Provincial Nominee Program</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: in-demand occupations and international graduates of NL schools.</p></div>
+      <a class="tool-btn" href="https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/overview/" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Northwest Territories</h3><p>NWT Nominee Program</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: a confirmed job offer from an NWT employer in a high-demand role.</p></div>
+      <a class="tool-btn" href="https://www.immigratenwt.ca/immigrate-here" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Nova Scotia</h3><p>Nova Scotia Nominee Program (NSNP)</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: healthcare workers and international graduates staying in the province.</p></div>
+      <a class="tool-btn" href="https://liveinnovascotia.com/" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Ontario</h3><p>Ontario Immigrant Nominee Program (OINP)</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: strong Express Entry points or a specific in-demand occupation — competitive.</p></div>
+      <a class="tool-btn" href="https://www.ontario.ca/page/ontario-immigrant-nominee-program-oinp" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Prince Edward Island</h3><p>PEI Provincial Nominee Program</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: willingness to settle long-term in PEI, especially in skilled trades.</p></div>
+      <a class="tool-btn" href="https://www.princeedwardisland.ca/en/topic/immigrate-to-pei-as-a-worker" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Saskatchewan</h3><p>Saskatchewan Immigrant Nominee Program (SINP)</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: in-demand occupations, often without needing a job offer first.</p></div>
+      <a class="tool-btn" href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program" target="_blank" rel="noopener">Official Site</a>
+    </div>
+    <div class="guide">
+      <div><h3>Yukon</h3><p>Yukon Nominee Program</p>
+      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: a confirmed job offer from a Yukon employer in a smaller community.</p></div>
+      <a class="tool-btn" href="https://yukon.ca/en/immigration/apply-immigrate-yukon/immigrate-yukon" target="_blank" rel="noopener">Official Site</a>
+    </div>
+  </section>
+
+  <section id="pnp-other">
+    <h2>Quebec &amp; Nunavut</h2>
+    <div class="ref-box">
+      <p>Quebec and Nunavut don't run a Provincial Nominee Program. Quebec selects economic immigrants through its own system instead (Quebec Selection Certificate); Nunavut currently has no nominee stream.</p>
+      <div class="guide" style="background:transparent;border:none;padding:10px 0 0;">
+        <div><h3>Quebec</h3><p>Immigrate to Quebec (separate selection system)</p></div>
+        <a class="tool-btn" href="https://www.quebec.ca/en/immigration" target="_blank" rel="noopener">Official Site</a>
+      </div>
+      <div class="guide" style="background:transparent;border:none;padding:10px 0 0;">
+        <div><h3>Nunavut</h3><p>Government of Nunavut — immigration info</p></div>
+        <a class="tool-btn" href="https://www.gov.nu.ca/en/immigration/immigrate-nunavut" target="_blank" rel="noopener">Official Site</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
+</div>
+
+<div id="empView" style="display:none">
+<header>
+  <div class="mark">🏢</div>
+  <div class="brand">CANADA &amp; BEYOND</div>
+  <h1>How to Find a Job With a Designated Employer in Atlantic Canada</h1>
+  <p class="sub">Under the Atlantic Immigration Program, you need a job offer from an employer the province has officially designated. Only New Brunswick, Nova Scotia, PEI and Newfoundland &amp; Labrador run this program — links below go straight to each province's current list.</p>
+</header>
+
+<main>
+  <section id="emp-note">
+    <div class="ref-box">
+      <span class="badge">Read this first</span>
+      <p style="margin:0;">Being on a list does not mean an employer is currently hiring — designated employers are simply required to advertise openings, which you'd still find through normal job search channels. These lists also change often as employers are added or removed, so always check the live version rather than a saved copy. Outside these four provinces, there's no equivalent public list — job offers there are verified case-by-case when you apply.</p>
+    </div>
+  </section>
+
+  <section id="emp-howto">
+    <h2>How to Actually Use This List</h2>
+    <div class="guide" style="display:block;">
+      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0 0 10px;"><strong>1. Pick your target province</strong> — the list only helps once you've narrowed to New Brunswick, Nova Scotia, PEI, or NL.</p>
+      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0 0 10px;"><strong>2. Search the list for your field</strong> — most lists are alphabetical, not sorted by industry, so use Ctrl+F for your sector or job title.</p>
+      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0 0 10px;"><strong>3. Check their actual job postings</strong> — being designated doesn't mean they're hiring right now. Search the employer's name directly on job boards or their own careers page.</p>
+      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0;"><strong>4. Confirm before you count on an offer</strong> — if an employer isn't on the current list, an offer from them won't qualify for the AIP until they're designated, which takes time.</p>
+    </div>
+  </section>
+
+  <section id="emp-list">
+    <h2>Atlantic Immigration Program — By Province</h2>
+    <div class="guide">
+      <div><h3>New Brunswick</h3><p>1,262+ employers — Government of New Brunswick</p></div>
+      <a class="tool-btn" href="https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/designated-employers-employeurs-designes.pdf" target="_blank" rel="noopener">View List</a>
+    </div>
+    <div class="guide">
+      <div><h3>Nova Scotia</h3><p>Designated employer list — Province of Nova Scotia</p></div>
+      <a class="tool-btn" href="https://liveinnovascotia.com/node/41" target="_blank" rel="noopener">View List</a>
+    </div>
+    <div class="guide">
+      <div><h3>Prince Edward Island</h3><p>364+ employers — Government of PEI</p></div>
+      <a class="tool-btn" href="https://www.princeedwardisland.ca/en/topic/atlantic-immigration-program" target="_blank" rel="noopener">View List</a>
+    </div>
+    <div class="guide">
+      <div><h3>Newfoundland &amp; Labrador</h3><p>310+ employers — Government of NL</p></div>
+      <a class="tool-btn" href="https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/atlantic-immigration-program/" target="_blank" rel="noopener">View List</a>
+    </div>
+  </section>
+
+  <section id="emp-faq">
+    <h2>Common Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Does being on the list mean they're hiring right now?</summary>
+        <p>No. It only means the province has approved them to make AIP job offers if they choose to hire internationally. Designated employers are required to advertise open positions — check their careers page or job boards to see what's actually open.</p>
+      </details>
+      <details>
+        <summary>My job offer is from an employer not on the list — what now?</summary>
+        <p>It won't qualify for the Atlantic Immigration Program until that employer becomes designated by the province, which is a separate process the employer must complete and can take time. Worth confirming before you count on that offer for this pathway specifically.</p>
+      </details>
+      <details>
+        <summary>Can I contact designated employers directly to ask about opportunities?</summary>
+        <p>Yes — that's exactly how these lists are meant to be used. Treat it like any job search: apply to advertised openings or reach out professionally, rather than expecting the list itself to generate an offer.</p>
+      </details>
+      <details>
+        <summary>What about provinces outside Atlantic Canada?</summary>
+        <p>They don't publish an equivalent public list. Job offers for their PNP streams are verified case-by-case when you submit your application — see our <a href="#" onclick="showPnp(event)" style="color:var(--gold);">PNP Links</a> page for those provinces.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="emp-cta">
+    <div class="ref-box" style="text-align:center;">
+      <p style="margin-bottom:14px;">Not sure if a job offer you've received qualifies?</p>
+      <a class="contact-btn" href="https://wa.me/237651279347?text=Hi%2C%20I%20have%20a%20job%20offer%20and%20want%20to%20check%20if%20the%20employer%20is%20designated%20for%20the%20Atlantic%20Immigration%20Program." target="_blank">Ask on WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
+</div>
+
 
 <script>
   const WHATSAPP_NUMBER = "237651279347";
@@ -353,8 +570,11 @@
     document.getElementById('homeView').style.display = 'none';
     document.getElementById('toolView').style.display = 'block';
     document.getElementById('chinaView').style.display = 'none';
+    document.getElementById('pnpView').style.display = 'none';
+    document.getElementById('empView').style.display = 'none';
     document.getElementById('tabHomeBtn').classList.remove('active');
     document.getElementById('tabToolBtn').classList.add('active');
+    document.getElementById('tabPnpBtn').classList.remove('active');
     document.getElementById('tabChinaBtn').classList.remove('active');
     window.scrollTo(0,0);
     history.pushState({view:'tool'}, '', '#tool');
@@ -364,27 +584,64 @@
     document.getElementById('homeView').style.display = 'none';
     document.getElementById('toolView').style.display = 'none';
     document.getElementById('chinaView').style.display = 'block';
+    document.getElementById('pnpView').style.display = 'none';
+    document.getElementById('empView').style.display = 'none';
     document.getElementById('tabHomeBtn').classList.remove('active');
     document.getElementById('tabToolBtn').classList.remove('active');
     document.getElementById('tabChinaBtn').classList.add('active');
+    document.getElementById('tabPnpBtn').classList.remove('active');
     window.scrollTo(0,0);
     history.pushState({view:'china'}, '', '#china');
+  }
+  function showPnp(e){
+    if(e) e.preventDefault();
+    document.getElementById('homeView').style.display = 'none';
+    document.getElementById('toolView').style.display = 'none';
+    document.getElementById('chinaView').style.display = 'none';
+    document.getElementById('pnpView').style.display = 'block';
+    document.getElementById('tabHomeBtn').classList.remove('active');
+    document.getElementById('tabToolBtn').classList.remove('active');
+    document.getElementById('tabChinaBtn').classList.remove('active');
+    document.getElementById('tabPnpBtn').classList.add('active');
+    document.getElementById('empView').style.display = 'none';
+    document.getElementById('tabEmpBtn').classList.remove('active');
+    window.scrollTo(0,0);
+    history.pushState({view:'pnp'}, '', '#pnp');
+  }
+  function showEmp(e){
+    if(e) e.preventDefault();
+    document.getElementById('homeView').style.display = 'none';
+    document.getElementById('toolView').style.display = 'none';
+    document.getElementById('chinaView').style.display = 'none';
+    document.getElementById('pnpView').style.display = 'none';
+    document.getElementById('empView').style.display = 'block';
+    document.getElementById('tabHomeBtn').classList.remove('active');
+    document.getElementById('tabToolBtn').classList.remove('active');
+    document.getElementById('tabChinaBtn').classList.remove('active');
+    document.getElementById('tabPnpBtn').classList.remove('active');
+    document.getElementById('tabEmpBtn').classList.add('active');
+    window.scrollTo(0,0);
+    history.pushState({view:'emp'}, '', '#emp');
   }
   function showHome(e){
     if(e) e.preventDefault();
     document.getElementById('toolView').style.display = 'none';
     document.getElementById('chinaView').style.display = 'none';
+    document.getElementById('pnpView').style.display = 'none';
+    document.getElementById('empView').style.display = 'none';
     document.getElementById('homeView').style.display = '';
     document.getElementById('tabToolBtn').classList.remove('active');
     document.getElementById('tabChinaBtn').classList.remove('active');
+    document.getElementById('tabPnpBtn').classList.remove('active');
+    document.getElementById('tabEmpBtn').classList.remove('active');
     document.getElementById('tabHomeBtn').classList.add('active');
     window.scrollTo(0,0);
     history.pushState({view:'home'}, '', location.pathname + location.search);
   }
   window.addEventListener('popstate', function(){
-    if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); } else { showHome(); }
+    if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); } else if(location.hash === '#pnp'){ showPnp(); } else if(location.hash === '#emp'){ showEmp(); } else { showHome(); }
   });
-  if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); }
+  if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); } else if(location.hash === '#pnp'){ showPnp(); } else if(location.hash === '#emp'){ showEmp(); }
 
 </script>
 <script>
