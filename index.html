@@ -3,31 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Canada & Beyond — Visa & Immigration Guides</title>
+<title>Canada &amp; Beyond — Visa &amp; Immigration Guides</title>
 <style>
   :root{
     --navy:#131c33; --navy2:#1f2a44; --gold:#c9a24b; --cream:#f5f1e6;
-    --text:#eae6da; --muted:#9aa2b8; --card:#1a2540;
-  }
-  @media (prefers-color-scheme: light){
-    :root:not([data-theme="dark"]){ --bg:#faf8f3; }
+    --text:#eae6da; --muted:#9aa2b8; --card:#1a2540; --line:#2a3556;
   }
   *{box-sizing:border-box;}
+  [hidden]{display:none !important;}
   html{scroll-padding-top:env(safe-area-inset-top,0px);}
   body{
     margin:0; font-family:Georgia,'Times New Roman',serif; background:var(--navy); color:var(--text);
     padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
   }
-  header{padding:48px 20px 32px; text-align:center; border-bottom:1px solid #2a3556;}
+  header{padding:40px 20px 24px; text-align:center;}
   .mark{font-size:34px;}
   .brand{letter-spacing:4px; color:var(--gold); font-size:12px; margin-top:10px; font-family:Arial,sans-serif;}
   h1{font-size:clamp(28px,6vw,42px); margin:16px auto 8px; max-width:720px;}
   .sub{color:var(--muted); font-family:Arial,sans-serif; max-width:560px; margin:0 auto; font-size:15px;}
-  main{max-width:760px; margin:0 auto; padding:36px 20px 80px;}
+
+  /* Tabs */
+  .tabs{
+    display:flex; gap:4px; max-width:760px; margin:0 auto; padding:0 20px;
+    border-bottom:1px solid var(--line); font-family:Arial,sans-serif;
+  }
+  .tab{
+    flex:1; background:none; border:none; border-bottom:3px solid transparent; color:var(--muted);
+    padding:14px 8px; font-size:14px; font-weight:bold; cursor:pointer; font-family:inherit;
+  }
+  .tab[aria-selected="true"]{color:var(--gold); border-bottom-color:var(--gold);}
+  .tab:focus-visible, .chip:focus-visible, .buy:focus-visible, .job:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  main{max-width:760px; margin:0 auto; padding:32px 20px 70px;}
   section{margin-bottom:48px;}
-  h2{color:var(--gold); font-size:20px; letter-spacing:1px; border-bottom:1px solid #2a3556; padding-bottom:10px;}
+  h2{color:var(--gold); font-size:20px; letter-spacing:1px; border-bottom:1px solid var(--line); padding-bottom:10px; margin-top:0;}
+
   .guide{
-    background:var(--card); border:1px solid #2a3556; border-radius:10px; padding:18px 20px;
+    background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px;
     margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
   }
   .guide h3{margin:0 0 4px; font-size:17px;}
@@ -58,148 +70,43 @@
   }
   .copy-btn{background:#2a3556; color:var(--text);}
   .wa-btn{background:#25D366; color:#06210f; width:100%; margin-top:6px;}
-  .tool-btn{
-    background:transparent; color:var(--gold); border:1px solid var(--gold); padding:9px 17px; border-radius:6px;
-    font-family:Arial,sans-serif; font-weight:bold; font-size:13px; cursor:pointer; white-space:nowrap;
-    text-decoration:none;
-  }
-
-
-  .faq details{background:var(--card); border:1px solid #2a3556; border-radius:8px; padding:14px 16px; margin-bottom:10px; font-family:Arial,sans-serif;}
-  .faq summary{cursor:pointer; font-weight:bold; font-size:14px; color:var(--text);}
-  .faq p{color:var(--muted); font-size:13px; margin:10px 0 0; line-height:1.5;}
-  .contact-btn{
-    background:var(--gold); color:#1a1300; border:none; padding:11px 18px; border-radius:6px;
-    font-family:Arial,sans-serif; font-weight:bold; font-size:13px; cursor:pointer; white-space:nowrap;
-    text-decoration:none; display:block; text-align:center;
-  }
-  .site-tabs{
-    display:flex; gap:2px; max-width:760px; margin:0 auto; padding:0 20px 0 20px;
-    background:var(--navy2); overflow-x:auto; -webkit-overflow-scrolling:touch;
-  }
-  .site-tabs::-webkit-scrollbar{display:none;}
-  .site-tab{
-    font-family:Arial,sans-serif; background:transparent; border:none; color:var(--muted);
-    cursor:pointer; padding:14px 18px; font-size:14px; white-space:nowrap; border-bottom:3px solid transparent;
-  }
-  .site-tab.active{ color:var(--text); border-bottom-color:var(--gold); font-weight:bold; }
   .badge{
     display:inline-block; background:#25D36622; color:#25D366; border:1px solid #25D36655;
     padding:3px 9px; border-radius:20px; font-size:11px; margin-bottom:10px;
   }
-  footer{text-align:center; padding:24px 20px; color:var(--muted); font-family:Arial,sans-serif; font-size:12px; border-top:1px solid #2a3556;}
 
-#toolView{
-  --navy:#1B2A4A; --navy-2:#243758; --gold:#C89B3C; --gold-dim:#8f6f2c;
-  --paper:#F7F4EC; --ink:#20242E; --ink-soft:#565B68; --line:#D8D2C2;
-  --done:#4C7A5B;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme: dark){
-  #toolView:not([data-theme="light"]){
-    --paper:#15181F; --ink:#EDEAE0; --ink-soft:#A6ABB8; --line:#333747; --navy:#233860; --navy-2:#2C4270;
+  /* Job pages tab */
+  .jobs-intro{color:var(--muted); font-family:Arial,sans-serif; font-size:14px; line-height:1.55; margin:0 0 16px;}
+  .notice{
+    background:#c9a24b14; border:1px solid #c9a24b55; border-radius:10px; padding:14px 16px;
+    font-family:Arial,sans-serif; font-size:13px; line-height:1.5; color:var(--text); margin-bottom:20px;
   }
-}
-#toolView[data-theme="dark"]{
-  --paper:#15181F; --ink:#EDEAE0; --ink-soft:#A6ABB8; --line:#333747; --navy:#233860; --navy-2:#2C4270;
-}
-#toolView{
-  margin:0; background:var(--paper); color:var(--ink);
-  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-  min-height:100%;
-}
-.sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
-#toolView header{
-  background:var(--navy); color:#fff;
-  padding:env(safe-area-inset-top,0px) 0 0 0;
-}
-.header-inner{max-width:920px; margin:0 auto; padding:28px 24px 22px;}
-.brand{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:13px; letter-spacing:.02em; color:var(--gold); margin:0 0 6px;}
-#toolView h1{font-size:clamp(24px,4vw,32px); margin:0 0 8px; font-weight:600; line-height:1.15;}
-.sub{color:#C9CEDA; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:15px; max-width:60ch; line-height:1.5; margin:0;}
+  .notice strong{color:var(--gold);}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; font-family:Arial,sans-serif;}
+  .chip{
+    background:var(--card); color:var(--text); border:1px solid var(--line); border-radius:20px;
+    padding:8px 14px; font-size:13px; cursor:pointer; font-family:inherit;
+  }
+  .chip[aria-pressed="true"]{background:var(--gold); color:#1a1300; border-color:var(--gold); font-weight:bold;}
+  .job{
+    display:block; background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:16px 18px; margin-bottom:12px; text-decoration:none; color:inherit;
+  }
+  .job:hover{border-color:var(--gold);}
+  .job h3{margin:0 0 6px; font-size:17px;}
+  .job p{margin:0 0 10px; color:var(--muted); font-family:Arial,sans-serif; font-size:13px; line-height:1.5;}
+  .job .go{color:var(--gold); font-family:Arial,sans-serif; font-size:12px; font-weight:bold; word-break:break-all;}
+  .cta{
+    margin-top:26px; background:var(--card); border:1px solid var(--gold); border-radius:10px; padding:18px 20px;
+    font-family:Arial,sans-serif; font-size:14px; color:var(--muted); display:flex; gap:14px; align-items:center;
+    justify-content:space-between; flex-wrap:wrap;
+  }
 
-.tabs{
-  max-width:920px; margin:0 auto; padding:0 24px;
-  display:flex; gap:2px; overflow-x:auto; -webkit-overflow-scrolling:touch;
-  background:var(--navy-2);
-}
-.tabs::-webkit-scrollbar{display:none;}
-.tab{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  background:transparent; border:none; color:#B9C0D1; cursor:pointer;
-  padding:14px 16px; font-size:14px; white-space:nowrap; border-bottom:3px solid transparent;
-}
-.tab.active{color:#fff; border-bottom-color:var(--gold); font-weight:600;}
-
-#toolView main{max-width:920px; margin:0 auto; padding:28px 24px 80px;}
-
-.progress-row{display:flex; align-items:center; gap:14px; margin-bottom:28px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;}
-.progress-track{flex:1; height:8px; background:var(--line); border-radius:4px; overflow:hidden;}
-.progress-fill{height:100%; background:var(--gold); width:0%; transition:width .3s ease;}
-.progress-label{font-size:13px; color:var(--ink-soft); white-space:nowrap;}
-
-.category{margin-bottom:30px;}
-.category h2{
-  font-size:19px; margin:0 0 4px; padding-bottom:10px; border-bottom:1px solid var(--line);
-  display:flex; align-items:baseline; justify-content:space-between; gap:10px;
-}
-.cat-count{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:13px; color:var(--ink-soft); font-weight:400;}
-
-.item{
-  display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);
-}
-.item:last-child{border-bottom:none;}
-.check{
-  flex:none; width:22px; height:22px; margin-top:2px; border-radius:5px;
-  border:2px solid var(--gold-dim); background:transparent; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; padding:0;
-}
-.check svg{width:13px; height:13px; opacity:0; stroke:#fff;}
-.item.done .check{background:var(--done); border-color:var(--done);}
-.item.done .check svg{opacity:1;}
-.item.done .item-title{color:var(--ink-soft); text-decoration:line-through; text-decoration-color:var(--line);}
-.item-body{flex:1; min-width:0;}
-.item-title{font-size:16px; font-weight:600; margin:0 0 4px; cursor:pointer;}
-.item-tip{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; font-size:14px; color:var(--ink-soft); line-height:1.5; margin:0;}
-
-.reset-row{margin-top:36px; text-align:center;}
-.reset-btn{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  background:none; border:1px solid var(--line); color:var(--ink-soft);
-  padding:9px 18px; border-radius:20px; font-size:13px; cursor:pointer;
-}
-.reset-btn:hover{border-color:var(--gold-dim); color:var(--ink);}
-
-#toolView footer{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  text-align:center; color:var(--ink-soft); font-size:12.5px; padding:0 24px 30px;
-}
-
-@media print{
-  #toolView header{background:none !important; color:var(--ink) !important;}
-  .brand,.sub{color:var(--ink-soft) !important;}
-  .tabs{display:none;}
-  .progress-row,.reset-row{display:none;}
-  .check{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
-}
-
-:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
-
+  footer{text-align:center; padding:24px 20px; color:var(--muted); font-family:Arial,sans-serif; font-size:12px; border-top:1px solid var(--line);}
 </style>
 </head>
 <body>
 
-<div class="site-tabs">
-  <button class="site-tab active" id="tabHomeBtn" onclick="showHome(event)">Guides &amp; Referral</button>
-  <button class="site-tab" id="tabToolBtn" onclick="showTool(event)">Document Prep Guide</button>
-  <button class="site-tab" id="tabChinaBtn" onclick="showChina(event)">China Sourcing</button>
-  <button class="site-tab" id="tabPnpBtn" onclick="showPnp(event)">PNP Links</button>
-  <button class="site-tab" id="tabEmpBtn" onclick="showEmp(event)">Designated Employers</button>
-</div>
-
-<div id="homeView">
 <header>
   <div class="mark">🌐</div>
   <div class="brand">CANADA &amp; BEYOND</div>
@@ -207,337 +114,95 @@
   <p class="sub">Officer-ready frameworks for a complete, credible visa application — by Ngwa Bertrand, Golden Gates Immigration Services.</p>
 </header>
 
+<nav class="tabs" role="tablist" aria-label="Page sections">
+  <button class="tab" role="tab" id="tab-guides" aria-controls="panel-guides" aria-selected="true">Guides &amp; Referrals</button>
+  <button class="tab" role="tab" id="tab-jobs" aria-controls="panel-jobs" aria-selected="false">Official Job Pages</button>
+</nav>
+
 <main>
-  <section id="guides">
-    <h2>The Guides</h2>
+  <!-- TAB 1: Guides & referrals -->
+  <div role="tabpanel" id="panel-guides" aria-labelledby="tab-guides">
+    <section id="guides">
+      <h2>The Guides</h2>
 
-    <div class="guide">
-      <div><h3>The Canada Business Visit Visa Guide</h3><p>Business visit visa framework for Cameroon applicants</p></div>
-      <a class="buy" href="#" data-guide="The Canada Business Visit Visa Guide">Buy on WhatsApp</a>
-    </div>
+      <div class="guide">
+        <div><h3>The Canada Business Visit Visa Guide</h3><p>Business visit visa framework for Cameroon applicants</p></div>
+        <a class="buy" href="#" data-guide="The Canada Business Visit Visa Guide">Buy on WhatsApp</a>
+      </div>
 
-    <div class="guide">
-      <div><h3>The Canada Visit &amp; Tourist Visa Guide</h3><p>Visitor visa framework, also covering Schengen, US, UK &amp; Australia</p></div>
-      <a class="buy" href="#" data-guide="The Canada Visit & Tourist Visa Guide">Buy on WhatsApp</a>
-    </div>
+      <div class="guide">
+        <div><h3>The Canada Visit &amp; Tourist Visa Guide</h3><p>Visitor visa framework, also covering Schengen, US, UK &amp; Australia</p></div>
+        <a class="buy" href="#" data-guide="The Canada Visit & Tourist Visa Guide">Buy on WhatsApp</a>
+      </div>
 
-    <div class="guide">
-      <div><h3>Building a Credible Savings History</h3><p>Step-by-step savings plan for visa applicants</p></div>
-      <a class="buy" href="#" data-guide="Building a Credible Savings History">Buy on WhatsApp</a>
-    </div>
+      <div class="guide">
+        <div><h3>Building a Credible Savings History</h3><p>Step-by-step savings plan for visa applicants</p></div>
+        <a class="buy" href="#" data-guide="Building a Credible Savings History">Buy on WhatsApp</a>
+      </div>
 
-    <div class="guide">
-      <div><h3>Visa &amp; Immigration Masterclass</h3><p>Complete guide to documentation, strategy &amp; global mobility</p></div>
-      <a class="buy" href="#" data-guide="Visa & Immigration Masterclass">Buy on WhatsApp</a>
-    </div>
+      <div class="guide">
+        <div><h3>Visa &amp; Immigration Masterclass</h3><p>Complete guide to documentation, strategy &amp; global mobility</p></div>
+        <a class="buy" href="#" data-guide="Visa & Immigration Masterclass">Buy on WhatsApp</a>
+      </div>
+    </section>
 
-    <div class="guide">
-      <div><h3>Document Preparation Guide</h3><p>Free interactive checklist — Business, Visit, Study, Work &amp; Immigration</p></div>
-      <a class="tool-btn" href="#tool" onclick="showTool(event)">Open Guide</a>
-    </div>
-  </section>
+    <section id="referral">
+      <h2>Become a Referral Partner</h2>
+      <div class="ref-box">
+        <span class="badge">Earn 15–25% per sale</span>
+        <p>Get your own referral link. Share it — anyone who buys through it gets 10% off, and you earn a commission once the sale is confirmed.</p>
+        <input id="refName" type="text" placeholder="Your name (e.g. Bertrand)">
+        <input id="refPhone" type="text" placeholder="Your WhatsApp number (for payouts)">
+        <button class="gen-btn" onclick="generateLink()">Generate my referral link</button>
 
-  <section id="referral">
-    <h2>Become a Referral Partner</h2>
-    <div class="ref-box">
-      <span class="badge">Earn 15–25% per sale</span>
-      <p>Get your own referral link. Share it — anyone who buys through it gets 10% off, and you earn a commission once the sale is confirmed.</p>
-      <input id="refName" type="text" placeholder="Your name (e.g. Bertrand)">
-      <input id="refPhone" type="text" placeholder="Your WhatsApp number (for payouts)">
-      <button class="gen-btn" onclick="generateLink()">Generate my referral link</button>
-
-      <div id="result">
-        <p style="color:var(--gold); font-weight:bold; margin-bottom:2px;">Your referral code: <span id="codeOut"></span></p>
-        <div class="link-row">
-          <input id="linkOut" readonly>
-          <button class="copy-btn" onclick="copyLink()">Copy</button>
+        <div id="result">
+          <p style="color:var(--gold); font-weight:bold; margin-bottom:2px;">Your referral code: <span id="codeOut"></span></p>
+          <div class="link-row">
+            <input id="linkOut" readonly>
+            <button class="copy-btn" onclick="copyLink()">Copy</button>
+          </div>
+          <a class="wa-btn" id="waShare" href="#" target="_blank" rel="noopener">Share this link on WhatsApp</a>
         </div>
-        <a class="wa-btn" id="waShare" href="#" target="_blank">Share this link on WhatsApp</a>
       </div>
-    </div>
-  </section>
-
-  <section id="pnp-faq">
-    <h2>Common Questions</h2>
-    <div class="faq">
-      <details>
-        <summary>Can I apply for a PNP without a job offer?</summary>
-        <p>In most streams, no — a job offer from an employer in that province is the default requirement. A small number of exceptions exist (certain graduate, entrepreneur, or in-demand-occupation categories), but which ones are open shifts throughout the year, so check the current streams on your target province's official page rather than relying on a fixed list.</p>
-      </details>
-      <details>
-        <summary>Which province is best for French-speaking applicants from Cameroon?</summary>
-        <p>New Brunswick and Manitoba are worth prioritizing — see the note above. That said, the right province still depends on your occupation, education and where you already have ties.</p>
-      </details>
-      <details>
-        <summary>Do I need to visit the province before applying?</summary>
-        <p>Not usually required, but a visit can help build genuine ties and strengthen your case for provinces that weigh intent to settle.</p>
-      </details>
-      <details>
-        <summary>Can I move to a different province after being nominated?</summary>
-        <p>A provincial nomination is tied to a commitment to live in that province. Relocating soon after landing can raise questions in future dealings with immigration authorities, so it's worth choosing the province you genuinely intend to settle in.</p>
-      </details>
-      <details>
-        <summary>How long does provincial nomination take?</summary>
-        <p>It varies widely by province and stream, and timelines shift often. The official page for your target province will have the current estimate.</p>
-      </details>
-    </div>
-  </section>
-
-  <section id="pnp-cta">
-    <div class="ref-box" style="text-align:center;">
-      <p style="margin-bottom:14px;">Not sure which province fits your profile?</p>
-      <a class="contact-btn" href="https://wa.me/237651279347?text=Hi%2C%20I%27d%20like%20help%20choosing%20the%20right%20Canadian%20province%20for%20my%20PNP%20application." target="_blank">Book a Consultation on WhatsApp</a>
-    </div>
-  </section>
-
-</main>
-
-<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
-</div>
-
-<div id="toolView" style="display:none">
-<header>
-  <div class="header-inner">
-    <p class="brand">GOLDEN GATES IMMIGRATION SERVICES</p>
-    <h1>Document Preparation Guide</h1>
-    <p class="sub">Work through each category as you gather your documents. Check items off as they're ready — your file is only complete when the list is.</p>
-    <p class="sub" style="margin-top:10px; font-size:13px; opacity:.8;">This checklist covers what to gather — it isn't a substitute for a full review of your specific case.</p>
+    </section>
   </div>
-  <div class="tabs" id="tabs"></div>
-</header>
 
-<main>
-  <div class="progress-row">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <span class="progress-label sans" id="progressLabel">0 of 0 ready</span>
-  </div>
-  <div id="categories"></div>
-  <div class="reset-row">
-    <button class="reset-btn" id="resetBtn">Reset this checklist</button>
+  <!-- TAB 2: Official job pages -->
+  <div role="tabpanel" id="panel-jobs" aria-labelledby="tab-jobs" hidden>
+    <section>
+      <h2>Official Job Pages</h2>
+      <p class="jobs-intro">Government-run job boards and official immigration pages for the main destinations. Pick a region below. Each link opens the official site in a new tab.</p>
+
+      <div class="notice">
+        <strong>Stay safe.</strong> Apply only through the official sites listed here or directly with a named employer. Be wary of anyone who asks you to pay money to “secure” a job offer or visa. Golden Gates Immigration Services is not affiliated with these government sites.
+      </div>
+
+      <div class="chips" id="chips" role="group" aria-label="Choose a region"></div>
+      <div id="jobList"></div>
+
+      <div class="cta">
+        <span>Preparing your application? Our guides show you how to present a complete, credible file.</span>
+        <a class="buy" href="#guides" id="toGuides">See the guides</a>
+      </div>
+    </section>
   </div>
 </main>
 
 <footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
-</div>
-<div id="chinaView" style="display:none">
-<header>
-  <div class="mark">🚢</div>
-  <div class="brand">CANADA &amp; BEYOND</div>
-  <h1>Source &amp; Import from China</h1>
-  <p class="sub">Learn to find reliable suppliers yourself — or let us handle the import once you already know what you need.</p>
-</header>
-
-<main>
-  <section id="china-guides">
-    <h2>Learn to Source</h2>
-    <div class="guide">
-      <div><h3>China Sourcing Masterclass</h3><p>Finding reliable suppliers, verifying legitimacy, negotiating MOQs &amp; price, quality control, and avoiding common scams</p></div>
-      <a class="buy" href="#" data-guide="China Sourcing Masterclass">Buy on WhatsApp</a>
-    </div>
-  </section>
-
-  <section id="china-import">
-    <h2>Already Found a Supplier?</h2>
-    <div class="ref-box">
-      <p>If you've already identified your product and supplier, we can handle the import for you — payment to the supplier, shipping, customs clearance, and delivery within Cameroon.</p>
-      <a class="contact-btn" href="https://wa.me/237651279347?text=Hi%2C%20I%20already%20have%20a%20supplier%20and%20would%20like%20help%20importing%20my%20order." target="_blank">Request Import Service</a>
-    </div>
-  </section>
-</main>
-
-<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
-</div>
-
-<div id="pnpView" style="display:none">
-<header>
-  <div class="mark">🍁</div>
-  <div class="brand">CANADA &amp; BEYOND</div>
-  <h1>Which Canadian Province Should You Apply To?</h1>
-  <p class="sub">Compare Canada's Provincial Nominee Programs (PNP) by province. Links go directly to the official government page — always confirm current requirements there before applying.</p>
-</header>
-
-<main>
-  <section id="pnp-francophone">
-    <div class="ref-box">
-      <span class="badge">Good to know</span>
-      <p>If you're more comfortable applying and settling in French, look at <strong>New Brunswick</strong> — Canada's only officially bilingual province, which runs dedicated Francophone streams and recruitment missions — and <strong>Manitoba</strong>'s francophone pathway. These typically mean lower language-score thresholds and access to targeted draws, not an exemption from the job-offer requirement. New Brunswick's main entry route from abroad (Francophone Workers) still needs a job offer or recruitment-mission offer; its no-offer exceptions (Francophone Priorities, Remote Workers) require already having studied or lived in the province for an extended period first — not a shortcut if you're applying from outside Canada.</p>
-    </div>
-  </section>
-
-  <section id="pnp-list">
-    <h2>Provinces &amp; Territories</h2>
-    <div class="ref-box" style="margin-bottom:24px;">
-      <p style="margin:0;">Almost every stream across every province requires a job offer from an employer in that province — that's the default to plan around. A handful of narrow exceptions exist (certain graduate, entrepreneur, or in-demand-occupation categories), but which ones are open changes throughout the year. Rather than list specifics that go stale, use the "Official Site" link below for the province you're targeting to see its current streams.</p>
-    </div>
-
-    <div class="guide">
-      <div><h3>Alberta</h3><p>Alberta Advantage Immigration Program (AAIP)</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: Alberta work experience, skilled trades, or agriculture-sector job offers.</p></div>
-      <a class="tool-btn" href="https://www.alberta.ca/alberta-advantage-immigration-program" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>British Columbia</h3><p>BC Provincial Nominee Program (BC PNP)</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: tech, healthcare or skilled trades — strong option even without a job offer.</p></div>
-      <a class="tool-btn" href="https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Manitoba</h3><p>Manitoba Provincial Nominee Program (MPNP)</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: a family connection in Manitoba, or an in-demand occupation.</p></div>
-      <a class="tool-btn" href="https://immigratemanitoba.com/mpnp/" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>New Brunswick</h3><p>New Brunswick Provincial Nominee Program</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: an existing job offer, especially via the Atlantic Immigration Program.</p></div>
-      <a class="tool-btn" href="https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Newfoundland and Labrador</h3><p>NL Provincial Nominee Program</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: in-demand occupations and international graduates of NL schools.</p></div>
-      <a class="tool-btn" href="https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/overview/" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Northwest Territories</h3><p>NWT Nominee Program</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: a confirmed job offer from an NWT employer in a high-demand role.</p></div>
-      <a class="tool-btn" href="https://www.immigratenwt.ca/immigrate-here" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Nova Scotia</h3><p>Nova Scotia Nominee Program (NSNP)</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: healthcare workers and international graduates staying in the province.</p></div>
-      <a class="tool-btn" href="https://liveinnovascotia.com/" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Ontario</h3><p>Ontario Immigrant Nominee Program (OINP)</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: strong Express Entry points or a specific in-demand occupation — competitive.</p></div>
-      <a class="tool-btn" href="https://www.ontario.ca/page/ontario-immigrant-nominee-program-oinp" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Prince Edward Island</h3><p>PEI Provincial Nominee Program</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: willingness to settle long-term in PEI, especially in skilled trades.</p></div>
-      <a class="tool-btn" href="https://www.princeedwardisland.ca/en/topic/immigrate-to-pei-as-a-worker" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Saskatchewan</h3><p>Saskatchewan Immigrant Nominee Program (SINP)</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: in-demand occupations, often without needing a job offer first.</p></div>
-      <a class="tool-btn" href="https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program" target="_blank" rel="noopener">Official Site</a>
-    </div>
-    <div class="guide">
-      <div><h3>Yukon</h3><p>Yukon Nominee Program</p>
-      <p style="margin-top:4px;color:var(--gold);font-size:12px;">Best fit: a confirmed job offer from a Yukon employer in a smaller community.</p></div>
-      <a class="tool-btn" href="https://yukon.ca/en/immigration/apply-immigrate-yukon/immigrate-yukon" target="_blank" rel="noopener">Official Site</a>
-    </div>
-  </section>
-
-  <section id="pnp-other">
-    <h2>Quebec &amp; Nunavut</h2>
-    <div class="ref-box">
-      <p>Quebec and Nunavut don't run a Provincial Nominee Program. Quebec selects economic immigrants through its own system instead (Quebec Selection Certificate); Nunavut currently has no nominee stream.</p>
-      <div class="guide" style="background:transparent;border:none;padding:10px 0 0;">
-        <div><h3>Quebec</h3><p>Immigrate to Quebec (separate selection system)</p></div>
-        <a class="tool-btn" href="https://www.quebec.ca/en/immigration" target="_blank" rel="noopener">Official Site</a>
-      </div>
-      <div class="guide" style="background:transparent;border:none;padding:10px 0 0;">
-        <div><h3>Nunavut</h3><p>Government of Nunavut — immigration info</p></div>
-        <a class="tool-btn" href="https://www.gov.nu.ca/en/immigration/immigrate-nunavut" target="_blank" rel="noopener">Official Site</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
-</div>
-
-<div id="empView" style="display:none">
-<header>
-  <div class="mark">🏢</div>
-  <div class="brand">CANADA &amp; BEYOND</div>
-  <h1>How to Find a Job With a Designated Employer in Atlantic Canada</h1>
-  <p class="sub">Under the Atlantic Immigration Program, you need a job offer from an employer the province has officially designated. Only New Brunswick, Nova Scotia, PEI and Newfoundland &amp; Labrador run this program — links below go straight to each province's current list.</p>
-</header>
-
-<main>
-  <section id="emp-note">
-    <div class="ref-box">
-      <span class="badge">Read this first</span>
-      <p style="margin:0;">Being on a list does not mean an employer is currently hiring — designated employers are simply required to advertise openings, which you'd still find through normal job search channels. These lists also change often as employers are added or removed, so always check the live version rather than a saved copy. Outside these four provinces, there's no equivalent public list — job offers there are verified case-by-case when you apply.</p>
-    </div>
-  </section>
-
-  <section id="emp-howto">
-    <h2>How to Actually Use This List</h2>
-    <div class="guide" style="display:block;">
-      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0 0 10px;"><strong>1. Pick your target province</strong> — the list only helps once you've narrowed to New Brunswick, Nova Scotia, PEI, or NL.</p>
-      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0 0 10px;"><strong>2. Search the list for your field</strong> — most lists are alphabetical, not sorted by industry, so use Ctrl+F for your sector or job title.</p>
-      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0 0 10px;"><strong>3. Check their actual job postings</strong> — being designated doesn't mean they're hiring right now. Search the employer's name directly on job boards or their own careers page.</p>
-      <p style="font-family:Arial,sans-serif;font-size:14px;color:var(--text);margin:0;"><strong>4. Confirm before you count on an offer</strong> — if an employer isn't on the current list, an offer from them won't qualify for the AIP until they're designated, which takes time.</p>
-    </div>
-  </section>
-
-  <section id="emp-list">
-    <h2>Atlantic Immigration Program — By Province</h2>
-    <div class="guide">
-      <div><h3>New Brunswick</h3><p>1,262+ employers — Government of New Brunswick</p></div>
-      <a class="tool-btn" href="https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/designated-employers-employeurs-designes.pdf" target="_blank" rel="noopener">View List</a>
-    </div>
-    <div class="guide">
-      <div><h3>Nova Scotia</h3><p>Designated employer list — Province of Nova Scotia</p></div>
-      <a class="tool-btn" href="https://liveinnovascotia.com/node/41" target="_blank" rel="noopener">View List</a>
-    </div>
-    <div class="guide">
-      <div><h3>Prince Edward Island</h3><p>364+ employers — Government of PEI</p></div>
-      <a class="tool-btn" href="https://www.princeedwardisland.ca/en/topic/atlantic-immigration-program" target="_blank" rel="noopener">View List</a>
-    </div>
-    <div class="guide">
-      <div><h3>Newfoundland &amp; Labrador</h3><p>310+ employers — Government of NL</p></div>
-      <a class="tool-btn" href="https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/atlantic-immigration-program/" target="_blank" rel="noopener">View List</a>
-    </div>
-  </section>
-
-  <section id="emp-faq">
-    <h2>Common Questions</h2>
-    <div class="faq">
-      <details>
-        <summary>Does being on the list mean they're hiring right now?</summary>
-        <p>No. It only means the province has approved them to make AIP job offers if they choose to hire internationally. Designated employers are required to advertise open positions — check their careers page or job boards to see what's actually open.</p>
-      </details>
-      <details>
-        <summary>My job offer is from an employer not on the list — what now?</summary>
-        <p>It won't qualify for the Atlantic Immigration Program until that employer becomes designated by the province, which is a separate process the employer must complete and can take time. Worth confirming before you count on that offer for this pathway specifically.</p>
-      </details>
-      <details>
-        <summary>Can I contact designated employers directly to ask about opportunities?</summary>
-        <p>Yes — that's exactly how these lists are meant to be used. Treat it like any job search: apply to advertised openings or reach out professionally, rather than expecting the list itself to generate an offer.</p>
-      </details>
-      <details>
-        <summary>What about provinces outside Atlantic Canada?</summary>
-        <p>They don't publish an equivalent public list. Job offers for their PNP streams are verified case-by-case when you submit your application — see our <a href="#" onclick="showPnp(event)" style="color:var(--gold);">PNP Links</a> page for those provinces.</p>
-      </details>
-    </div>
-  </section>
-
-  <section id="emp-cta">
-    <div class="ref-box" style="text-align:center;">
-      <p style="margin-bottom:14px;">Not sure if a job offer you've received qualifies?</p>
-      <a class="contact-btn" href="https://wa.me/237651279347?text=Hi%2C%20I%20have%20a%20job%20offer%20and%20want%20to%20check%20if%20the%20employer%20is%20designated%20for%20the%20Atlantic%20Immigration%20Program." target="_blank">Ask on WhatsApp</a>
-    </div>
-  </section>
-</main>
-
-<footer>Golden Gates Immigration Services · Yaoundé, Cameroon</footer>
-</div>
-
 
 <script>
   const WHATSAPP_NUMBER = "237651279347";
   const params = new URLSearchParams(window.location.search);
   const incomingRef = params.get('ref');
 
+  /* ---------- Guides & referral (unchanged behaviour) ---------- */
   function waBuyLink(guideName){
     let msg = `Hi, I'd like to buy the guide: ${guideName}.`;
     if (incomingRef) msg += ` I was referred by code ${incomingRef}.`;
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   }
 
-  document.querySelectorAll('.buy').forEach(btn=>{
+  document.querySelectorAll('.buy[data-guide]').forEach(btn=>{
     btn.href = waBuyLink(btn.dataset.guide);
   });
 
@@ -565,322 +230,119 @@
     navigator.clipboard?.writeText(el.value);
   }
 
-  function showTool(e){
-    if(e) e.preventDefault();
-    document.getElementById('homeView').style.display = 'none';
-    document.getElementById('toolView').style.display = 'block';
-    document.getElementById('chinaView').style.display = 'none';
-    document.getElementById('pnpView').style.display = 'none';
-    document.getElementById('empView').style.display = 'none';
-    document.getElementById('tabHomeBtn').classList.remove('active');
-    document.getElementById('tabToolBtn').classList.add('active');
-    document.getElementById('tabPnpBtn').classList.remove('active');
-    document.getElementById('tabChinaBtn').classList.remove('active');
-    window.scrollTo(0,0);
-    history.pushState({view:'tool'}, '', '#tool');
-  }
-  function showChina(e){
-    if(e) e.preventDefault();
-    document.getElementById('homeView').style.display = 'none';
-    document.getElementById('toolView').style.display = 'none';
-    document.getElementById('chinaView').style.display = 'block';
-    document.getElementById('pnpView').style.display = 'none';
-    document.getElementById('empView').style.display = 'none';
-    document.getElementById('tabHomeBtn').classList.remove('active');
-    document.getElementById('tabToolBtn').classList.remove('active');
-    document.getElementById('tabChinaBtn').classList.add('active');
-    document.getElementById('tabPnpBtn').classList.remove('active');
-    window.scrollTo(0,0);
-    history.pushState({view:'china'}, '', '#china');
-  }
-  function showPnp(e){
-    if(e) e.preventDefault();
-    document.getElementById('homeView').style.display = 'none';
-    document.getElementById('toolView').style.display = 'none';
-    document.getElementById('chinaView').style.display = 'none';
-    document.getElementById('pnpView').style.display = 'block';
-    document.getElementById('tabHomeBtn').classList.remove('active');
-    document.getElementById('tabToolBtn').classList.remove('active');
-    document.getElementById('tabChinaBtn').classList.remove('active');
-    document.getElementById('tabPnpBtn').classList.add('active');
-    document.getElementById('empView').style.display = 'none';
-    document.getElementById('tabEmpBtn').classList.remove('active');
-    window.scrollTo(0,0);
-    history.pushState({view:'pnp'}, '', '#pnp');
-  }
-  function showEmp(e){
-    if(e) e.preventDefault();
-    document.getElementById('homeView').style.display = 'none';
-    document.getElementById('toolView').style.display = 'none';
-    document.getElementById('chinaView').style.display = 'none';
-    document.getElementById('pnpView').style.display = 'none';
-    document.getElementById('empView').style.display = 'block';
-    document.getElementById('tabHomeBtn').classList.remove('active');
-    document.getElementById('tabToolBtn').classList.remove('active');
-    document.getElementById('tabChinaBtn').classList.remove('active');
-    document.getElementById('tabPnpBtn').classList.remove('active');
-    document.getElementById('tabEmpBtn').classList.add('active');
-    window.scrollTo(0,0);
-    history.pushState({view:'emp'}, '', '#emp');
-  }
-  function showHome(e){
-    if(e) e.preventDefault();
-    document.getElementById('toolView').style.display = 'none';
-    document.getElementById('chinaView').style.display = 'none';
-    document.getElementById('pnpView').style.display = 'none';
-    document.getElementById('empView').style.display = 'none';
-    document.getElementById('homeView').style.display = '';
-    document.getElementById('tabToolBtn').classList.remove('active');
-    document.getElementById('tabChinaBtn').classList.remove('active');
-    document.getElementById('tabPnpBtn').classList.remove('active');
-    document.getElementById('tabEmpBtn').classList.remove('active');
-    document.getElementById('tabHomeBtn').classList.add('active');
-    window.scrollTo(0,0);
-    history.pushState({view:'home'}, '', location.pathname + location.search);
-  }
-  window.addEventListener('popstate', function(){
-    if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); } else if(location.hash === '#pnp'){ showPnp(); } else if(location.hash === '#emp'){ showEmp(); } else { showHome(); }
-  });
-  if(location.hash === '#tool'){ showTool(); } else if(location.hash === '#china'){ showChina(); } else if(location.hash === '#pnp'){ showPnp(); } else if(location.hash === '#emp'){ showEmp(); }
+  /* ---------- Official job pages data (edit here to add or change links) ---------- */
+  const REGIONS = [
+    { id:'canada', label:'🇨🇦 Canada', items:[
+      { name:'Job Bank', url:'https://www.jobbank.gc.ca',
+        desc:"Canada's official federal job board: job search, job alerts and labour market information. Free to use." },
+      { name:'Find a job (Canada.ca)', url:'https://www.canada.ca/en/services/jobs/opportunities.html',
+        desc:'Official Government of Canada page for finding jobs, including federal public service openings.' },
+      { name:'Work in Canada (IRCC)', url:'https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html',
+        desc:'Official guidance on work permits and how foreign nationals can work in Canada.' }
+    ]},
+    { id:'uk', label:'🇬🇧 United Kingdom', items:[
+      { name:'Find a job (GOV.UK)', url:'https://findajob.dwp.gov.uk',
+        desc:"The UK government's official job vacancy service for jobs in Great Britain." },
+      { name:'Civil Service Jobs', url:'https://www.civilservicejobs.service.gov.uk',
+        desc:'Central government vacancies. Many roles restrict applicants by nationality, so check each advert.' },
+      { name:'NHS Jobs', url:'https://www.jobs.nhs.uk',
+        desc:'Official NHS vacancies. Check each advert to see whether visa sponsorship is offered.' },
+      { name:'Skilled Worker visa', url:'https://www.gov.uk/skilled-worker-visa',
+        desc:'Official requirements and application steps for the UK Skilled Worker visa.' },
+      { name:'Register of licensed sponsors', url:'https://www.gov.uk/government/publications/register-of-licensed-sponsors-workers',
+        desc:'The official list of UK employers licensed to sponsor overseas workers.' }
+    ]},
+    { id:'europe', label:'🇪🇺 Europe', items:[
+      { name:'EURES (European Job Mobility Portal)', url:'https://eures.europa.eu',
+        desc:'Official EU portal listing job vacancies from European countries, with advisers and mobility information.' },
+      { name:'EU Careers', url:'https://eu-careers.europa.eu',
+        desc:'Jobs at EU institutions. Most roles require citizenship of an EU country.' },
+      { name:'EU Immigration Portal', url:'https://immigration-portal.ec.europa.eu',
+        desc:'Official European Commission information on moving to the EU to work, study or live.' },
+      { name:'Make it in Germany', url:'https://www.make-it-in-germany.com',
+        desc:"The German government's official portal for skilled workers: job search, visas and recognition of qualifications." }
+    ]},
+    { id:'australia', label:'🇦🇺 Australia', items:[
+      { name:'Workforce Australia', url:'https://www.workforceaustralia.gov.au',
+        desc:"The Australian Government's official job search site, with job ads and career resources." },
+      { name:'APSjobs', url:'https://www.apsjobs.gov.au',
+        desc:'Australian Public Service vacancies. Most roles require Australian citizenship, so check each ad.' },
+      { name:'Skilled Migration Program (Home Affairs)', url:'https://immi.homeaffairs.gov.au/what-we-do/skilled-migration-program',
+        desc:'Official information on skilled visa options and requirements for working in Australia.' }
+    ]},
+    { id:'nz', label:'🇳🇿 New Zealand', items:[
+      { name:'Immigration New Zealand: Work', url:'https://www.immigration.govt.nz/work',
+        desc:'Official work visa information, including how to find a job and visa options.' },
+      { name:'Careers NZ: job vacancy websites', url:'https://www.careers.govt.nz',
+        desc:'Government careers site with a directory of job vacancy and recruitment websites.' },
+      { name:'NZ Government jobs', url:'https://www.jobs.govt.nz',
+        desc:'New Zealand public sector job listings.' }
+    ]}
+  ];
 
-</script>
-<script>
-const DATA = {
-  business: {
-    label: "Business Visit",
-    categories: [
-      { name: "Identity & Status", items: [
-        { t: "Valid passport (6+ months beyond travel date)", tip: "Officers check that the passport won't expire mid-trip — a short validity window is an easy first rejection." },
-        { t: "National ID card", tip: "Confirms identity matches every other document in the file." },
-        { t: "Passport-size photos (visa spec)", tip: "Must meet the exact size and background rules for the destination country's visa form." }
-      ]},
-      { name: "Purpose of Travel", items: [
-        { t: "Invitation letter from host company", tip: "Should state the purpose, dates, and who is covering costs — vague invitations invite refusal." },
-        { t: "Employer's letter confirming the trip", tip: "Shows you have a job to return to — this is a key 'ties to home' signal." },
-        { t: "Company registration documents", tip: "Proves both companies are real, operating businesses, not just names on a letter." },
-        { t: "Meeting agenda or conference proof", tip: "Concrete evidence the visit has a defined business outcome, not an open-ended stay." }
-      ]},
-      { name: "Financial Evidence", items: [
-        { t: "Bank statements (last 6 months)", tip: "Officers look for consistent activity, not a lump sum deposited right before applying." },
-        { t: "Proof of who is funding the trip", tip: "If the company is paying, a clear sponsorship letter avoids confusion about your own finances." }
-      ]},
-      { name: "Ties to Home Country", items: [
-        { t: "Proof of employment / business ownership", tip: "The strongest evidence you have a reason to come back." },
-        { t: "Property or lease documents", tip: "Physical roots in the home country weigh heavily in the officer's judgment." },
-        { t: "Family or dependent details", tip: "Dependents relying on you are another strong return incentive." }
-      ]}
-    ]
-  },
-  visit: {
-    label: "Visit & Tourist",
-    categories: [
-      { name: "Identity & Status", items: [
-        { t: "Valid passport (6+ months beyond travel date)", tip: "Same rule across nearly every destination — check this first, every time." },
-        { t: "National ID card", tip: "Backs up identity consistency across the file." },
-        { t: "Passport-size photos (visa spec)", tip: "Each country/consulate has its own exact spec — check before printing." }
-      ]},
-      { name: "Travel Plan", items: [
-        { t: "Round-trip flight reservation", tip: "A reservation, not necessarily a paid ticket — but dates must match the visa duration requested." },
-        { t: "Accommodation booking or invitation letter", tip: "Shows where you'll actually stay for every night of the trip." },
-        { t: "Day-by-day itinerary", tip: "Demonstrates a genuine, thought-out visit rather than an open-ended plan." },
-        { t: "Travel insurance (required for Schengen)", tip: "Schengen specifically requires minimum €30,000 medical coverage — this is often missed." }
-      ]},
-      { name: "Financial Evidence", items: [
-        { t: "Bank statements (last 3–6 months)", tip: "Consistent balance and regular inflows matter more than a single high number." },
-        { t: "Proof of income or pension", tip: "Shows the funds are sustainable, not a one-time gift for the application." }
-      ]},
-      { name: "Ties to Home Country", items: [
-        { t: "Employment letter with leave approval", tip: "Confirms a job is waiting and leave is already granted for these exact dates." },
-        { t: "Property, business, or family documents", tip: "Any evidence of obligations that require a return." }
-      ]}
-    ]
-  },
-  savings: {
-    label: "Savings History",
-    categories: [
-      { name: "Building the Record", items: [
-        { t: "Open or use one main account consistently", tip: "Officers distrust money that appears across many scattered accounts right before applying." },
-        { t: "Regular, explainable deposits over time", tip: "A pattern that matches a real income source reads as credible; sudden lump sums do not." },
-        { t: "Avoid large unexplained inflows", tip: "Any large deposit should have a paper trail — salary, sale of an asset, or documented gift." }
-      ]},
-      { name: "Supporting Paperwork", items: [
-        { t: "Employment or business income proof", tip: "Ties the savings pattern back to a believable source." },
-        { t: "Letter explaining any gifted funds", tip: "Include the giver's relationship, their own financial proof, and reason for the gift." },
-        { t: "Six-month (minimum) statement history", tip: "Shorter histories are the single most common reason savings evidence is questioned." }
-      ]}
-    ]
-  },
-  master: {
-    label: "Full Application File",
-    categories: [
-      { name: "Core Documents", items: [
-        { t: "Passport + national ID", tip: "The foundation every other document is cross-checked against." },
-        { t: "Visa application form (signed, no errors)", tip: "Inconsistencies between the form and supporting documents are a top rejection cause." },
-        { t: "Passport photos to exact spec", tip: "Confirm the spec for the specific destination before printing." }
-      ]},
-      { name: "The Narrative", items: [
-        { t: "Cover letter explaining purpose of travel", tip: "Ties every other document into one coherent story the officer can follow in two minutes." },
-        { t: "Supporting invitation or booking evidence", tip: "Matches the story told in the cover letter — dates and names must align exactly." }
-      ]},
-      { name: "Financial & Ties Evidence", items: [
-        { t: "Bank statements + income proof", tip: "The financial half of the credibility picture." },
-        { t: "Employment, property, or family ties", tip: "The 'why they'll return' half — both halves are needed, not just one." }
-      ]},
-      { name: "Final Review", items: [
-        { t: "Every name, date, and address matches across all documents", tip: "The most common reason a strong file still gets refused is a mismatch an officer catches in seconds." },
-        { t: "Translations attached where required", tip: "Certified translations only — informal ones are often rejected outright." }
-      ]}
-    ]
-  },
-  study: {
-    label: "Study Visa",
-    categories: [
-      { name: "Identity & Status", items: [
-        { t: "Valid passport (covering your full study period)", tip: "Your passport should stay valid well beyond your expected graduation date, not just the current term." },
-        { t: "National ID card", tip: "Backs up identity consistency across every document in your file." },
-        { t: "Passport-size photos (visa spec)", tip: "Check the exact size and background rules for your destination before printing." }
-      ]},
-      { name: "Acceptance & Enrollment", items: [
-        { t: "Letter of acceptance from the school", tip: "This is the anchor document — it must be from a designated/recognized institution and match your program exactly." },
-        { t: "Proof of tuition deposit or payment", tip: "Shows the offer is real and you've already committed to the program." },
-        { t: "Academic transcripts and certificates", tip: "Confirms you meet the entry requirements the school admitted you under." }
-      ]},
-      { name: "Financial Evidence", items: [
-        { t: "Proof of funds for tuition and living costs", tip: "Must cover the officer's minimum threshold for your destination, not just tuition alone." },
-        { t: "GIC or blocked account certificate (where required)", tip: "Some countries (e.g. Canada's SDS-style routes) require funds locked in a specific account — check if this applies to you." },
-        { t: "Sponsor's financial documents (if sponsored)", tip: "Include proof of the sponsor's relationship to you and their own income or savings history." }
-      ]},
-      { name: "Ties to Home Country", items: [
-        { t: "Study plan / statement of purpose", tip: "Explains why this program, why now, and how it fits your plans back home — officers read this closely for intent to return." },
-        { t: "Family, property, or job-offer ties", tip: "Evidence of what's waiting for you at home strengthens your case that this is temporary study, not a one-way move." }
-      ]}
-    ]
-  },
-  work: {
-    label: "Work Visa",
-    categories: [
-      { name: "Identity & Status", items: [
-        { t: "Valid passport (covering the full work permit period)", tip: "Should extend well past your contract's end date." },
-        { t: "National ID card", tip: "Confirms identity matches your employment paperwork exactly." },
-        { t: "Passport-size photos (visa spec)", tip: "Check the exact spec for your destination country before printing." }
-      ]},
-      { name: "Job Offer & Authorization", items: [
-        { t: "Signed job offer or employment contract", tip: "Must state role, salary, and duration clearly — vague contracts raise questions." },
-        { t: "Labour market authorization (e.g. LMIA) if required", tip: "Some countries require the employer to prove no local hire was available — confirm if your route needs this." },
-        { t: "Proof of qualifications or licenses", tip: "Certificates or licenses showing you're qualified for the specific role offered." }
-      ]},
-      { name: "Financial Evidence", items: [
-        { t: "Bank statements (last 3–6 months)", tip: "Shows you can support yourself until your first paycheck lands." },
-        { t: "Proof of settlement funds (if required)", tip: "Some work-visa routes require a minimum amount on hand for initial settling-in costs." }
-      ]},
-      { name: "Ties to Home Country", items: [
-        { t: "Property, family, or business ties", tip: "For temporary work visas, this shows the move is for the job term, not permanent relocation without a plan." },
-        { t: "Current employer's leave letter (if applicable)", tip: "If you're on assignment rather than resigning, this confirms you have a position to return to." }
-      ]}
-    ]
-  },
-  immigration: {
-    label: "Immigration",
-    categories: [
-      { name: "Identity & Civil Status", items: [
-        { t: "Valid passport", tip: "The core identity document every other form and certificate is checked against." },
-        { t: "Birth certificate", tip: "Required to confirm identity and, often, family relationships in your application." },
-        { t: "Marriage certificate (if applicable)", tip: "Needed if a spouse is included in your application." }
-      ]},
-      { name: "Eligibility Documents", items: [
-        { t: "Language test results", tip: "Most points-based systems require a recent, specific test — check the validity window before applying." },
-        { t: "Educational credential assessment (ECA)", tip: "Converts your foreign degree into an equivalent recognized by the immigration system." },
-        { t: "Work experience letters", tip: "Should state job title, duties, hours per week, and dates precisely — vague letters cost points." }
-      ]},
-      { name: "Financial Evidence", items: [
-        { t: "Proof of settlement funds", tip: "Most economic immigration routes require a minimum amount on hand, scaled to family size." },
-        { t: "Bank statements showing fund history", tip: "Officers want to see the money has been available and unencumbered, not borrowed just before applying." }
-      ]},
-      { name: "Background & Admissibility", items: [
-        { t: "Police clearance certificates", tip: "Required from every country you've lived in for an extended period — these can take weeks to arrive, so start early." },
-        { t: "Medical exam (from an approved panel physician)", tip: "Must be done by a physician approved by the destination country, not just any doctor." }
-      ]}
-    ]
-  }
-};
+  /* ---------- Render job pages ---------- */
+  const chipsEl = document.getElementById('chips');
+  const listEl = document.getElementById('jobList');
+  let activeRegion = REGIONS[0].id;
 
-const tabsEl = document.getElementById('tabs');
-const catsEl = document.getElementById('categories');
-const fillEl = document.getElementById('progressFill');
-const labelEl = document.getElementById('progressLabel');
-const resetBtn = document.getElementById('resetBtn');
-
-let current = 'business';
-const STORE_PREFIX = 'ggi-doc-prep-';
-
-function loadState(key){
-  try{ return JSON.parse(localStorage.getItem(STORE_PREFIX+key) || '{}'); }
-  catch(e){ return {}; }
-}
-function saveState(key, state){
-  try{ localStorage.setItem(STORE_PREFIX+key, JSON.stringify(state)); }
-  catch(e){ /* storage unavailable, continue silently */ }
-}
-
-function render(){
-  tabsEl.innerHTML = '';
-  Object.keys(DATA).forEach(key=>{
-    const b = document.createElement('button');
-    b.className = 'tab sans' + (key===current ? ' active' : '');
-    b.textContent = DATA[key].label;
-    b.onclick = ()=>{ current = key; render(); };
-    tabsEl.appendChild(b);
-  });
-
-  const state = loadState(current);
-  const cats = DATA[current].categories;
-  let total = 0, done = 0;
-
-  catsEl.innerHTML = '';
-  cats.forEach((cat, ci)=>{
-    const catDiv = document.createElement('div');
-    catDiv.className = 'category';
-    const catDone = cat.items.filter((_,ii)=>state[ci+'-'+ii]).length;
-    catDiv.innerHTML = `<h2>${cat.name} <span class="cat-count">${catDone}/${cat.items.length}</span></h2>`;
-
-    cat.items.forEach((item, ii)=>{
-      total++;
-      const id = ci+'-'+ii;
-      const isDone = !!state[id];
-      if(isDone) done++;
-      const row = document.createElement('div');
-      row.className = 'item' + (isDone ? ' done' : '');
-      row.innerHTML = `
-        <button class="check" aria-label="Mark done" aria-pressed="${isDone}">
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="item-body">
-          <p class="item-title">${item.t}</p>
-          <p class="item-tip">${item.tip}</p>
-        </div>`;
-      const toggle = ()=>{
-        const s = loadState(current);
-        s[id] = !s[id];
-        saveState(current, s);
-        render();
-      };
-      row.querySelector('.check').onclick = toggle;
-      row.querySelector('.item-title').onclick = toggle;
-      catDiv.appendChild(row);
+  function renderJobs(){
+    chipsEl.textContent = '';
+    REGIONS.forEach(r=>{
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.textContent = r.label;
+      b.setAttribute('aria-pressed', String(r.id === activeRegion));
+      b.addEventListener('click', ()=>{ activeRegion = r.id; renderJobs(); });
+      chipsEl.appendChild(b);
     });
-    catsEl.appendChild(catDiv);
+
+    listEl.textContent = '';
+    const region = REGIONS.find(r=>r.id === activeRegion);
+    region.items.forEach(it=>{
+      const a = document.createElement('a');
+      a.className = 'job';
+      a.href = it.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      const h = document.createElement('h3'); h.textContent = it.name;
+      const p = document.createElement('p'); p.textContent = it.desc;
+      const go = document.createElement('span'); go.className = 'go';
+      go.textContent = 'Visit ' + new URL(it.url).hostname.replace(/^www\./,'') + ' ↗';
+      a.append(h, p, go);
+      listEl.appendChild(a);
+    });
+  }
+  renderJobs();
+
+  /* ---------- Tabs ---------- */
+  const tabs = { guides: document.getElementById('tab-guides'), jobs: document.getElementById('tab-jobs') };
+  const panels = { guides: document.getElementById('panel-guides'), jobs: document.getElementById('panel-jobs') };
+
+  function showTab(name, focus){
+    Object.keys(tabs).forEach(k=>{
+      const on = k === name;
+      tabs[k].setAttribute('aria-selected', String(on));
+      tabs[k].tabIndex = on ? 0 : -1;
+      panels[k].hidden = !on;
+    });
+    try{ history.replaceState(null, '', name === 'jobs' ? '#jobs' : window.location.pathname + window.location.search); }catch(e){}
+    if (focus) tabs[name].focus();
+  }
+
+  tabs.guides.addEventListener('click', ()=> showTab('guides'));
+  tabs.jobs.addEventListener('click', ()=> showTab('jobs'));
+  document.querySelector('.tabs').addEventListener('keydown', e=>{
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+      showTab(tabs.guides.getAttribute('aria-selected') === 'true' ? 'jobs' : 'guides', true);
+    }
+  });
+  document.getElementById('toGuides').addEventListener('click', e=>{
+    e.preventDefault(); showTab('guides'); window.scrollTo({top:0});
   });
 
-  fillEl.style.width = total ? (done/total*100)+'%' : '0%';
-  labelEl.textContent = `${done} of ${total} ready`;
-}
-
-resetBtn.onclick = ()=>{
-  saveState(current, {});
-  render();
-};
-
-render();
+  // Open the job pages tab directly when the link ends in #jobs
+  showTab(window.location.hash === '#jobs' ? 'jobs' : 'guides');
 </script>
 
 </body>
